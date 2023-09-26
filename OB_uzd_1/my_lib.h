@@ -10,8 +10,9 @@ using std::vector;
 
 struct studentas {
 	string vardas, pavarde;
-	vector <int> pazymiai;
+	vector <int> nd_pazymiai;
 	int egz;
 	float rez;
 };
 
+void input_data();
