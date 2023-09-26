@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="OB_uzd_1.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="my_lib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="my_lib.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
