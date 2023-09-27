@@ -16,3 +16,4 @@ struct studentas {
 };
 
 void input_data();
+void input_vector(std::vector<int>& v)
