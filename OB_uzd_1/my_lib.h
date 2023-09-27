@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include <algorithm>
+#include <iomanip> 
 
 using std::cin;
 using std::cout;
@@ -9,6 +10,8 @@ using std::endl;
 using std::string;
 using std::vector;
 using std::sort;
+using std::left;
+using std::setw;
 
 struct studentas {
 	string vardas, pavarde;

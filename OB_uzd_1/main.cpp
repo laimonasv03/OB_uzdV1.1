@@ -16,9 +16,12 @@ int main() {
 		Laikinas.nd_pazymiai.clear();
 	}
 
-	cout << Laikinas.vardas << "  " << Laikinas.pavarde << " ";
 
-	for (auto& a : grupe) {
-		cout << a.vardas << "  " << a.pavarde << a.egz << a.galutinis_vidurkis << a.galutinis_mediana << " ";
-	}
+	 //Stulpeliu pavadinimai
+    cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis (vid.)" << setw(15) << "Galutinis (med.)\n";
+
+    // studentai 
+    for (auto& student : grupe) {
+        cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << std::setw(20) << student.galutinis_mediana << "\n";
+    }
 }
