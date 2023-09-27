@@ -15,5 +15,6 @@ struct studentas {
 	float rez;
 };
 
-void input_data();
-void input_vector(std::vector<int>& v)
+studentas input_data();
+void input_vector(std::vector<int>& v);
+float galutinis(studentas& stud);

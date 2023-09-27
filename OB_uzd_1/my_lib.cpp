@@ -9,9 +9,8 @@ void input_vector(std::vector<int>& v) {
 	}
 }
 
-void input_data(studentas& studentas) { // &pasakom kokio tipo bus 
-	string vardas, pavarde;
-	vector<int> nd_pazymiai;
+studentas input_data() { // &pasakom kokio tipo bus 
+	studentas studentas;
 	int egz;
 	cout << "Ivesk studento Varda: ";
 	cin >> studentas.vardas;
@@ -23,4 +22,25 @@ void input_data(studentas& studentas) { // &pasakom kokio tipo bus
 	cout << "Ivesk nd pazymius, pabaigus ivesk bet kokia raide : \n";
 	input_vector(studentas.nd_pazymiai);
 	
+	return studentas;
+}
+float galutinis(studentas& stud) {
+	int pazimiu_suma = 0;
+	float vidurkis;
+	float galutinis;
+
+	for (int pazimys : stud.nd_pazymiai) {
+		pazimiu_suma += pazimys;
+	}
+
+	if (stud.nd_pazymiai.size() == 0) {
+		vidurkis = 0.0f; // 0 jei tuscias vektorius
+	}
+	else {
+		vidurkis = static_cast<float>(pazimiu_suma) / stud.nd_pazymiai.size();
+	}
+
+	galutinis = 0.4 * vidurkis + 0.6 * stud.egz;
+
+	return galutinis;
 }
