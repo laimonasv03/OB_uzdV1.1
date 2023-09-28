@@ -100,3 +100,4 @@ int atsitiktinis() {
 	uniform_int_distribution<int> dist(1, 10); //intervalas
 	return dist(rd);
 }
+

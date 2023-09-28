@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <iomanip> 
 #include <random>
+#include <fstream>
+#include <sstream>
 
 using std::cin;
 using std::cout;
@@ -17,6 +19,9 @@ using std::random_device;
 using std::uniform_int_distribution;
 using std::fixed;
 using std::setprecision;
+using std::printf;
+using std::ifstream;
+
 
 struct studentas {
 	string vardas, pavarde;
@@ -33,3 +38,4 @@ float galutinisV(studentas& stud);
 float galutinisM(studentas& stud);
 int atsitiktinis();
 float suapvalink(float value);
+void read_from_file(const string& filename, vector<studentas>& students);

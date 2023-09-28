@@ -129,9 +129,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_lib.cpp" />
+    <ClCompile Include="reading.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_lib.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Desktop\OB_Testavimas.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
