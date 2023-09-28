@@ -20,9 +20,22 @@ int main() {
 	 //Stulpeliu pavadinimai
     cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)" << setw(15) << "Galutinis(med.)\n";
 	*/
-
-    // studentai 
-    for (auto& student : grupe) {
-        cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << std::setw(40) << student.galutinis_mediana << "\n";
-    }
+	int pasirinkimas_balo;
+	cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
+	cout << "1. vidurkiu\n2. mediana\n";
+	cin >> pasirinkimas_balo;
+	if (pasirinkimas_balo == 1) {
+		cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)\n";
+		for (auto& student : grupe) {
+			cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis <<"\n";
+		}
+	}
+	else if (pasirinkimas_balo == 2) {
+		cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)\n";
+		// studentai 
+		for (auto& student : grupe) {
+			cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
+		}
+	}
+	
 }
