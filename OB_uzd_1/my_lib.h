@@ -3,6 +3,7 @@
 #include<vector>
 #include <algorithm>
 #include <iomanip> 
+#include <random>
 
 using std::cin;
 using std::cout;
@@ -12,6 +13,10 @@ using std::vector;
 using std::sort;
 using std::left;
 using std::setw;
+using std::random_device;
+using std::uniform_int_distribution;
+using std::fixed;
+using std::setprecision;
 
 struct studentas {
 	string vardas, pavarde;
@@ -26,3 +31,5 @@ studentas input_data();
 void input_vector(std::vector<int>& v);
 float galutinisV(studentas& stud);
 float galutinisM(studentas& stud);
+int atsitiktinis();
+float suapvalink(float value);

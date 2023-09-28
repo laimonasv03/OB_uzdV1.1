@@ -16,9 +16,21 @@ vector<int> input_vector() {
 	return data;
 }
 
+float suapvalink(float value) {
+	
+	return round(value * 100) / 100;
+}
+
 studentas input_data() { // &pasakom kokio tipo bus 
 	studentas studentas;
 	int egz;
+	int pasirinkimas;
+	int n_paz;
+
+	cout << "Ar nori, kad nd_pazymiai bei egzamino balas butu sugeneruoti atsitiktinai?\n(ivesk viena is skaiciu)" << endl;
+	cout << "1. Ne\n2. taip\n";
+	cin >> pasirinkimas;
+	if(pasirinkimas == 1){
 	cout << "Ivesk studento Varda: ";
 	cin >> studentas.vardas;
 	cout << "Ivesk studento Pavarde: ";
@@ -27,7 +39,19 @@ studentas input_data() { // &pasakom kokio tipo bus
 	cin >> studentas.egz;
 
 	studentas.nd_pazymiai = input_vector();
-
+	}
+	else if (pasirinkimas == 2) {
+		cout << "Ivesk studento Varda: ";
+		cin >> studentas.vardas;
+		cout << "Ivesk studento Pavarde: ";
+		cin >> studentas.pavarde;
+		cout << "Ivesk sveika skaiciu, nurodanti nd pazymiu kieki: " << " ";
+		cin >> n_paz;
+		for (int i = 0; i < n_paz; ++i) {
+			studentas.nd_pazymiai.push_back(atsitiktinis());
+		}
+		studentas.egz = atsitiktinis();
+	}
 	return studentas;
 }
 float galutinisV(studentas& stud) {
@@ -48,7 +72,7 @@ float galutinisV(studentas& stud) {
 
 	galutinis_vidurkis = 0.4 * vidurkis + 0.6 * stud.egz;
 
-	return galutinis_vidurkis;
+	return suapvalink(galutinis_vidurkis);
 }
 
 float galutinisM(studentas& stud) {
@@ -69,4 +93,10 @@ float galutinisM(studentas& stud) {
 	}
 	galutinis_mediana = 0.4 * mediana + 0.6 * stud.egz;
 	return galutinis_mediana;
+}
+
+int atsitiktinis() {
+	random_device rd; //random generator
+	uniform_int_distribution<int> dist(1, 10); //intervalas
+	return dist(rd);
 }
