@@ -124,3 +124,7 @@ void printTableVid(const vector<studentas>& grupe) {
 bool palygintiPavarde(studentas& a, studentas& b) {
 	return a.pavarde < b.pavarde;
 }
+
+bool palygintiVarda(studentas& a, studentas& b) {
+	return a.pavarde < b.pavarde;
+}

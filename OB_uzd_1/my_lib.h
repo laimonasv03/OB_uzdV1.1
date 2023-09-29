@@ -42,3 +42,4 @@ void read_from_file(const string& filename, vector<studentas>& students);
 void printTableMed(const vector<studentas>& grupe);
 void printTableVid(const vector<studentas>& grupe);
 bool palygintiPavarde(studentas& a, studentas& b);
+bool palygintiVarda(studentas& a, studentas& b);

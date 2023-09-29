@@ -20,6 +20,7 @@ int main() {
 			grupe.push_back(Laikinas);
 			Laikinas.nd_pazymiai.clear();
 		}
+		sort(grupe.begin(), grupe.end(), palygintiPavarde);
 		int pasirinkimas_balo;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";
@@ -41,7 +42,7 @@ int main() {
 	else if (vesti_nuskaityti == 2) {
 		std::string filename = "OB_TEST.txt";
 		read_from_file(filename, grupe);
-
+		sort(grupe.begin(), grupe.end(), palygintiPavarde);
 		
 		for (studentas& Laikinas : grupe) {
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
