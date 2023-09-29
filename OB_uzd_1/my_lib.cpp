@@ -101,3 +101,26 @@ int atsitiktinis() {
 	return dist(rd);
 }
 
+void printTableMed(const vector<studentas>& grupe) {
+	// Print column headers
+	cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)\n";
+
+	// Print student data
+	for (const studentas& student : grupe) {
+		cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
+	}
+}
+
+void printTableVid(const vector<studentas>& grupe) {
+	// Print column headers
+	cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vod.)\n";
+
+	// Print student data
+	for (const studentas& student : grupe) {
+		cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << "\n";
+	}
+}
+
+bool palygintiPavarde(studentas& a, studentas& b) {
+	return a.pavarde < b.pavarde;
+}

@@ -39,3 +39,6 @@ float galutinisM(studentas& stud);
 int atsitiktinis();
 float suapvalink(float value);
 void read_from_file(const string& filename, vector<studentas>& students);
+void printTableMed(const vector<studentas>& grupe);
+void printTableVid(const vector<studentas>& grupe);
+bool palygintiPavarde(studentas& a, studentas& b);

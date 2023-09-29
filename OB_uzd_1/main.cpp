@@ -20,7 +20,6 @@ int main() {
 			grupe.push_back(Laikinas);
 			Laikinas.nd_pazymiai.clear();
 		}
-
 		int pasirinkimas_balo;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";
@@ -54,17 +53,10 @@ int main() {
 		cout << "1. vidurkiu\n2. mediana\n";
 		cin >> pasirinkimas_balo_2;
 		if (pasirinkimas_balo_2 == 1) {
-			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)\n";
-			for (auto& student : grupe) {
-				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << "\n";
-			}
+			printTableVid(grupe);
 		}
 		else if (pasirinkimas_balo_2 == 2) {
-			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)\n";
-			// studentai 
-			for (auto& student : grupe) {
-				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
-			}
+			printTableMed(grupe);
 		}
 
 	}
