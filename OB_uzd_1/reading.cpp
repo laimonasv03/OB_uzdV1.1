@@ -1,42 +1,35 @@
 #include "my_lib.h";
 
-void read_from_file(const string& filename, vector<studentas>& students)
+void read_from_file(const string& filename, vector<studentas>& grupe)
 {
+    std::ifstream file(filename); //naudoti failo pavadinima
+    studentas Laik;
 
-    ifstream inputFile(filename);
-
-    if (!inputFile.is_open())
-    {
-        cout << "Error: Failas neatidaromas" << endl;
-        return;
+    if (!file.is_open()) {
+        cout <<"Klaida atidarant faila ";
+        return; 
     }
 
-    string line;
-    bool firstLine = true; // praleidziam pirma eilute
-    int lineCount = 0;
-
-    while (getline(inputFile, line))
-    {
-        studentas student;
+    std::string dummyLine;
+    getline(file, dummyLine);
+    while (file >> Laik.pavarde >> Laik.vardas) { 
+        std::string line;
+        getline(file, line);
         std::istringstream iss(line);
-
-        iss >> student.vardas >> student.pavarde;
-
-        int grade;
-        while (iss >> grade)
-        {
-            student.nd_pazymiai.push_back(grade);
+        int nd;
+        std::vector<int> temp;
+        while (iss >> nd) {
+            temp.push_back(nd);
         }
-
-        
-        if (!student.nd_pazymiai.empty())
-        {
-            student.egz = student.nd_pazymiai.back();
-            student.nd_pazymiai.pop_back(); 
+        for (int i = 0; i < temp.size() - 1; i++) {
+            Laik.nd_pazymiai.push_back(temp[i]); 
         }
-
-        students.push_back(student);
+        Laik.egz = temp.back();
+        Laik.galutinis_mediana = galutinisM(Laik); // su mediana
+        Laik.galutinis_vidurkis = galutinisV(Laik); // su vidurkiu
+        grupe.push_back(Laik); 
+        Laik.nd_pazymiai.clear();
     }
 
-    inputFile.close();
+    file.close();
 }

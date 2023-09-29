@@ -21,7 +21,7 @@ float suapvalink(float value) {
 	return round(value * 100) / 100;
 }
 
-studentas input_data() { // &pasakom kokio tipo bus 
+studentas input_data() { 
 	studentas studentas;
 	int egz;
 	int pasirinkimas;
