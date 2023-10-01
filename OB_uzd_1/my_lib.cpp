@@ -21,7 +21,7 @@ float suapvalink(float value) {
 	return round(value * 100) / 100;
 }
 
-studentas input_data() { 
+studentas input_data() {
 	studentas studentas;
 	int egz;
 	int pasirinkimas;
@@ -54,6 +54,9 @@ studentas input_data() {
 	}
 	return studentas;
 }
+
+
+
 float galutinisV(studentas& stud) {
 	int pazimiu_suma = 0;
 	float vidurkis;
@@ -127,4 +130,12 @@ bool palygintiPavarde(studentas& a, studentas& b) {
 
 bool palygintiVarda(studentas& a, studentas& b) {
 	return a.pavarde < b.pavarde;
+}
+
+void patikrink(int& value) {
+	while (!(std::cin >> value) || (value != 1 && value != 2)) {
+		std::cout << "Ivedei netinkama skaiciu, ivesk 1 arba 2 ";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 }

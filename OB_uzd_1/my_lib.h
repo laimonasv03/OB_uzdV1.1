@@ -6,6 +6,9 @@
 #include <random>
 #include <fstream>
 #include <sstream>
+#include <limits>
+
+
 
 using std::cin;
 using std::cout;
@@ -21,7 +24,9 @@ using std::fixed;
 using std::setprecision;
 using std::printf;
 using std::ifstream;
-
+using std::streamsize;
+using std::numeric_limits;
+using std::runtime_error;
 
 struct studentas {
 	string vardas, pavarde;
@@ -43,3 +48,5 @@ void printTableMed(const vector<studentas>& grupe);
 void printTableVid(const vector<studentas>& grupe);
 bool palygintiPavarde(studentas& a, studentas& b);
 bool palygintiVarda(studentas& a, studentas& b);
+void patikrink(int& value);
+

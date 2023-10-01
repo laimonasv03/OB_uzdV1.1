@@ -8,8 +8,8 @@ int main() {
 	vector<studentas> grupe;
 	int n;
 	cout << "Ar nori vesti duomenis, ar generuoti(ivesk tinkama skaiciu)" << endl;
-	cout << "1 Vesti\n2 Nuskaityti"<< endl;
-	cin >> vesti_nuskaityti;
+	cout << "1 Vesti\n2 Nuskaityti" << endl;
+	patikrink(vesti_nuskaityti);
 	if (vesti_nuskaityti == 1) {
 		cout << "kiek moksleiviu ivesi: ";
 		cin >> n;
@@ -43,7 +43,7 @@ int main() {
 		std::string filename = "OB_TEST.txt";
 		read_from_file(filename, grupe);
 		sort(grupe.begin(), grupe.end(), palygintiPavarde);
-		
+
 		for (studentas& Laikinas : grupe) {
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
 			Laikinas.galutinis_mediana = galutinisM(Laikinas);
@@ -61,6 +61,7 @@ int main() {
 		}
 
 	}
+	else {
+		cout << "ivedei netinkama skaiciu";
+	}
 }
-
-
