@@ -12,7 +12,7 @@ int main() {
 	patikrink(vesti_nuskaityti);
 	if (vesti_nuskaityti == 1) {
 		cout << "kiek moksleiviu ivesi: ";
-		cin >> n;
+		patikrink_daug(n);
 		for (int j = 0; j < n; j++) {
 			Laikinas = input_data();
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
@@ -24,7 +24,7 @@ int main() {
 		int pasirinkimas_balo;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";
-		cin >> pasirinkimas_balo;
+		patikrink(pasirinkimas_balo);
 		if (pasirinkimas_balo == 1) {
 			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)\n";
 			for (auto& student : grupe) {
@@ -52,7 +52,7 @@ int main() {
 		int pasirinkimas_balo_2;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";
-		cin >> pasirinkimas_balo_2;
+		patikrink(pasirinkimas_balo_2);
 		if (pasirinkimas_balo_2 == 1) {
 			printTableVid(grupe);
 		}

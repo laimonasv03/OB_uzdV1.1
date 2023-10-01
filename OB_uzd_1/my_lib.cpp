@@ -29,7 +29,7 @@ studentas input_data() {
 
 	cout << "Ar nori, kad nd_pazymiai bei egzamino balas butu sugeneruoti atsitiktinai?\n(ivesk viena is skaiciu)" << endl;
 	cout << "1. Ne\n2. taip\n";
-	cin >> pasirinkimas;
+	patikrink(pasirinkimas);
 	if(pasirinkimas == 1){
 	cout << "Ivesk studento Varda: ";
 	cin >> studentas.vardas;
@@ -134,8 +134,17 @@ bool palygintiVarda(studentas& a, studentas& b) {
 
 void patikrink(int& value) {
 	while (!(std::cin >> value) || (value != 1 && value != 2)) {
-		std::cout << "Ivedei netinkama skaiciu, ivesk 1 arba 2 ";
+		std::cout << "Ivedei netinkama skaiciu, ivesk 1 arba 2 " << endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
+
+void patikrink_daug(int& value) {
+	while (!(std::cin >> value)) {
+		std::cout << "Ivedei netinkama skaiciu, ivesk sveika skaiciu " << endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+}
+
