@@ -106,21 +106,24 @@ int atsitiktinis() {
 
 void printTableMed(const vector<studentas>& grupe) {
 	// Print column headers
-	cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)\n";
+	cout << "+---------------------+---------------------+-------------------+\n";
+	cout << "| " << left << setw(20) << "Pavarde" << "| " << setw(20) << "Vardas" << "| " << setw(18) << "Galutinis(med.)" << "|\n";
+	cout << "+---------------------+---------------------+-------------------+\n";
 
 	// Print student data
 	for (const studentas& student : grupe) {
-		cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
+		cout << "| " << left << setw(20) << student.pavarde << "| " << setw(20) << student.vardas << "| " << setw(18) << student.galutinis_mediana << "|\n";
+		cout << "+---------------------+---------------------+-------------------+\n";
 	}
 }
 
 void printTableVid(const vector<studentas>& grupe) {
-	// Print column headers
-	cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vod.)\n";
-
+	cout << "+---------------------+---------------------+-------------------+\n";
+	cout << "| " << left << setw(20) << "Pavarde" << "| " << setw(20) << "Vardas" << "| " << setw(18) << "Galutinis(v1d.)" << "|\n";
 	// Print student data
 	for (const studentas& student : grupe) {
-		cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << "\n";
+		cout << "| " << left << setw(20) << student.pavarde << "| " << setw(20) << student.vardas << "| " << setw(18) << student.galutinis_vidurkis << "|\n";
+		cout << "+---------------------+---------------------+-------------------+\n";
 	}
 }
 
