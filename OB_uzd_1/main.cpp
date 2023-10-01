@@ -3,6 +3,7 @@
 
 
 int main() {
+	std::string filename = "studentai10000.txt";
 	int vesti_nuskaityti;
 	studentas Laikinas;
 	vector<studentas> grupe;
@@ -40,7 +41,6 @@ int main() {
 		}
 	}
 	else if (vesti_nuskaityti == 2) {
-		std::string filename = "OB_TEST.txt";
 		read_from_file(filename, grupe);
 		sort(grupe.begin(), grupe.end(), palygintiPavarde);
 
