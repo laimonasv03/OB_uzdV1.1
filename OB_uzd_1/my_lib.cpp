@@ -136,8 +136,8 @@ bool palygintiVarda(studentas& a, studentas& b) {
 }
 
 void patikrink(int& value) {
-	while (!(std::cin >> value) || (value != 1 && value != 2)) {
-		std::cout << "Ivedei netinkama skaiciu, ivesk 1 arba 2 " << endl;
+	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3)) {
+		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2 arba 3 " << endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
@@ -151,3 +151,26 @@ void patikrink_daug(int& value) {
 	}
 }
 
+void generuoja_sarasa(int& n) {
+	string file_name = "generuoti_studentai.txt";
+	vector<string> data;
+	data.push_back("Vardas\t\tPavarde\t\tND1\tND2\tND3\tND4\tND5\tND6\tND7\tND8\tND9\tND10\tND11\tND12\tND13\tND14\tND15\tEgz");
+
+	for (int i = 1; i <= n; i++) {
+		string irasas;
+		irasas = "Vardenis" + to_string(i) + "\tPavardenis" + to_string(i);
+
+		for (int j = 0; j < 16; ++j) {
+			int pazimys = atsitiktinis();
+			irasas += "\t" + to_string(pazimys);
+		}
+
+		data.push_back(irasas);
+	}
+
+	ofstream outputFile(file_name);
+	for (const string& irasas : data) {
+		outputFile << irasas << endl;
+	}
+	outputFile.close();
+}

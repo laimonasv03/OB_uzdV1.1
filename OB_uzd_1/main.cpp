@@ -8,8 +8,8 @@ int main() {
 	studentas Laikinas;
 	vector<studentas> grupe;
 	int n;
-	cout << "Ar nori vesti duomenis, ar generuoti(ivesk tinkama skaiciu)" << endl;
-	cout << "1 Vesti\n2 Nuskaityti" << endl;
+	cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
+	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila" << endl;
 	patikrink(vesti_nuskaityti);
 	if (vesti_nuskaityti == 1) {
 		cout << "kiek moksleiviu ivesi: ";
@@ -59,6 +59,13 @@ int main() {
 		else if (pasirinkimas_balo_2 == 2) {
 			printTableMed(grupe);
 		}
+
+	}
+	else if (vesti_nuskaityti == 3) {
+		int moksleiviu_skaicius;
+		cout << "kiek moksleiviu generuoti: ";
+		patikrink_daug(moksleiviu_skaicius);
+		generuoja_sarasa(moksleiviu_skaicius);
 
 	}
 	else {

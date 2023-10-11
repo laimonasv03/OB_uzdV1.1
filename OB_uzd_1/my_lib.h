@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-
+#include <string> 
 
 
 using std::cin;
@@ -27,6 +27,8 @@ using std::ifstream;
 using std::streamsize;
 using std::numeric_limits;
 using std::runtime_error;
+using std::to_string;
+using std::ofstream;
 
 struct studentas {
 	string vardas, pavarde;
@@ -50,4 +52,5 @@ bool palygintiPavarde(studentas& a, studentas& b);
 bool palygintiVarda(studentas& a, studentas& b);
 void patikrink(int& value);
 void patikrink_daug(int& value);
+void generuoja_sarasa(int& n);
 
