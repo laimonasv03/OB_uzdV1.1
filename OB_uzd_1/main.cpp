@@ -9,7 +9,7 @@ int main() {
 	vector<studentas> grupe;
 	int n;
 	cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
-	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila" << endl;
+	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas" << endl;
 	patikrink(vesti_nuskaityti);
 	if (vesti_nuskaityti == 1) {
 		cout << "kiek moksleiviu ivesi: ";
@@ -66,6 +66,20 @@ int main() {
 		cout << "kiek moksleiviu generuoti: ";
 		patikrink_daug(moksleiviu_skaicius);
 		generuoja_sarasa(moksleiviu_skaicius);
+		read_from_file("generuoti_studentai.txt", grupe);
+		for (studentas& Laikinas : grupe) {
+			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
+			Laikinas.nd_pazymiai.clear();
+		}
+		pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+		vector<studentas> gudrociai = dvi_grupes.first;
+		vector<studentas> vargsiukai = dvi_grupes.second;
+		cout << "Gudrociai:" << endl;
+		printTableVid(gudrociai);
+		cout << "Vargsiukai:" << endl;
+		printTableVid(vargsiukai);
+	}
+	else if (vesti_nuskaityti == 4) {
 
 	}
 	else {

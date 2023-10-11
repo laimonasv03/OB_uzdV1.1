@@ -136,8 +136,8 @@ bool palygintiVarda(studentas& a, studentas& b) {
 }
 
 void patikrink(int& value) {
-	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3)) {
-		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2 arba 3 " << endl;
+	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4)) {
+		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
@@ -173,4 +173,19 @@ void generuoja_sarasa(int& n) {
 		outputFile << irasas << endl;
 	}
 	outputFile.close();
+}
+
+pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe) {
+	vector<studentas> gudrociai_bim;
+	vector<studentas> vargsiukai_bam;
+	for (const studentas& mok : grupe) {
+		if (mok.galutinis_vidurkis < 5.0) {
+			vargsiukai_bam.push_back(mok);
+		}
+		else if (mok.galutinis_vidurkis >= 5.0) {
+			gudrociai_bim.push_back(mok);
+		}
+
+	}
+	return std::make_pair(gudrociai_bim, vargsiukai_bam);
 }
