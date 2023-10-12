@@ -78,7 +78,8 @@ int main() {
 		printTableVid(gudrociai);
 		cout << "Vargsiukai:" << endl;
 		printTableVid(vargsiukai);
-
+		iraso_faila(gudrociai,"gudrociai_bim.txt");
+		iraso_faila(vargsiukai, "vargsiukai_bam.txt");
 	}
 	else if (vesti_nuskaityti == 4) {
 

@@ -1,0 +1,7 @@
+Vardas              Pavarde             Egzaminas           Rezultatas          
+Pavardenis2         Vardenis2           2                   4.27                
+Pavardenis3         Vardenis3           2                   3.71                
+Pavardenis4         Vardenis4           5                   4.81                
+Pavardenis5         Vardenis5           1                   2.39                
+Pavardenis8         Vardenis8           2                   3.57                
+Pavardenis10        Vardenis10          3                   4.31                
