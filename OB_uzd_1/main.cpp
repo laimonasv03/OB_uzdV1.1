@@ -3,7 +3,7 @@
 
 
 int main() {
-	std::string filename = "studentai10000.txt";
+
 	int vesti_nuskaityti;
 	studentas Laikinas;
 	vector<studentas> grupe;
@@ -41,6 +41,7 @@ int main() {
 		}
 	}
 	else if (vesti_nuskaityti == 2) {
+		std::string filename = "emokymai_studentai10000.txt.txt";
 		read_from_file(filename, grupe);
 		sort(grupe.begin(), grupe.end(), palygintiPavarde);
 
@@ -66,7 +67,7 @@ int main() {
 		cout << "kiek moksleiviu generuoti: ";
 		patikrink_daug(moksleiviu_skaicius);
 		auto start_time = std::chrono::high_resolution_clock::now();
-		generuoja_sarasa(moksleiviu_skaicius);
+		generuoja_sarasa(moksleiviu_skaicius, "generuoti_studentai.txt");
 		read_from_file("generuoti_studentai.txt", grupe);
 		for (studentas& Laikinas : grupe) {
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
@@ -88,6 +89,47 @@ int main() {
 		cout << duration.count() << " milliseconds (" << duration.count() / 1000.0 << " seconds)" << endl;
 	}
 	else if (vesti_nuskaityti == 4) {
+		vector<studentas> grupe_1000;
+		vector<studentas> grupe_10000;
+		vector<studentas> grupe_100000;
+		vector<studentas> grupe_1000000;
+		vector<studentas> grupe_10000000;
+		vector<long> durations;
+		//nuskaitymas
+		for (int i = 0; i < 3; ++i) {
+			auto start_time = std::chrono::high_resolution_clock::now();
+			read_from_file("Studentai1000.txt", grupe);
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations.push_back(duration.count());
+		}
+		long average_duration_read_1000 = accumulate(durations.begin(), durations.end(), 0) / durations.size();
+		durations.clear();
+		cout <<"Vidutinis laikas (3 bandymai) nuskaityti 1000 faila: " << average_duration_read_1000 << " milliseconds (" << average_duration_read_1000 / 1000.0 << " seconds)" << endl;
+		//rusiavimas
+		for (int i = 0; i < 3; ++i) {
+			auto start_time = std::chrono::high_resolution_clock::now();
+			sort(grupe.begin(), grupe.end(), palygintiPavarde);
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations.push_back(duration.count());
+		}
+		long average_duration_sort_1000 = accumulate(durations.begin(), durations.end(), 0) / durations.size();
+		durations.clear();
+		cout << "Vidutinis laikas (3 bandymai) surusiuoti 1000 studentu: " << average_duration_sort_1000 << " milliseconds (" << average_duration_sort_1000 / 1000.0 << " seconds)" << endl;
+		//isskirstymas i kategorijas
+		for (int i = 0; i < 3; ++i) {
+			auto start_time = std::chrono::high_resolution_clock::now();
+			pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe_1000);
+			vector<studentas> gudrociai_1000 = dvi_grupes.first;
+			vector<studentas> vargsiukai_1000 = dvi_grupes.second;
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations.push_back(duration.count());
+		}
+		long average_duration_split_1000 = accumulate(durations.begin(), durations.end(), 0) / durations.size();
+		durations.clear();
+		cout << "Vidutinis laikas (3 bandymai) isskirstyti i grupes 1000 studentu: " << average_duration_split_1000 << " milliseconds (" << average_duration_split_1000 / 1000.0 << " seconds)" << endl;
 
 	}
 	else {

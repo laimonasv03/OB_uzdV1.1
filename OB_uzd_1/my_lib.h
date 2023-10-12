@@ -9,6 +9,7 @@
 #include <limits>
 #include <string> 
 #include <chrono>
+#include <numeric>
 
 
 using std::cin;
@@ -31,6 +32,7 @@ using std::runtime_error;
 using std::to_string;
 using std::ofstream;
 using std::pair;
+using std::accumulate;
 
 struct studentas {
 	string vardas, pavarde;
@@ -54,7 +56,8 @@ bool palygintiPavarde(studentas& a, studentas& b);
 bool palygintiVarda(studentas& a, studentas& b);
 void patikrink(int& value);
 void patikrink_daug(int& value);
-void generuoja_sarasa(int& n);
+void generuoja_sarasa(int& n, string file_name);
 pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe);
 void iraso_faila(const vector<studentas>& grupe, string file_name);
+void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name);
 

@@ -151,8 +151,7 @@ void patikrink_daug(int& value) {
 	}
 }
 
-void generuoja_sarasa(int& n) {
-	string file_name = "generuoti_studentai.txt";
+void generuoja_sarasa(int& n, string file_name) {
 	vector<string> data;
 	data.push_back("Vardas\t\tPavarde\t\tND1\tND2\tND3\tND4\tND5\tND6\tND7\tND8\tND9\tND10\tND11\tND12\tND13\tND14\tND15\tEgz");
 
@@ -193,15 +192,15 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<stu
 void iraso_faila(const vector<studentas>& grupe, string file_name) {
 	ofstream outputFile(file_name);
 	//headeris
-	outputFile << std::left << std::setw(20) << "Vardas" << std::setw(20) << "Pavarde";
+	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
 	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-		outputFile << std::setw(20) << "ND" + std::to_string(i);
+		outputFile << setw(20) << "ND" + to_string(i);
 	}
-	outputFile << std::setw(20) << "Egzaminas" << std::setw(20) << "Rezultatas" << std::endl;
+	outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
 
 	//irasymas
 	for (const studentas& mok : grupe) {
-		outputFile << left << setw(20) << mok.vardas<< std::setw(20) << mok.pavarde;
+		outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
 		for (int pazimys : mok.nd_pazymiai) {
 			outputFile << pazimys << "\t";
 		}
@@ -209,6 +208,30 @@ void iraso_faila(const vector<studentas>& grupe, string file_name) {
 			outputFile << setw(20) << pazymys;
 		}
 		outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
+	}
+
+	outputFile.close();
+}
+
+void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name) {
+	ofstream outputFile(file_name);
+	//headeris
+	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
+		outputFile << setw(20) << "ND" + to_string(i);
+	}
+	outputFile << setw(20) << "Egzaminas" << setw(20) << endl;
+
+	//irasymas
+	for (const studentas& mok : grupe) {
+		outputFile << left << setw(20) << mok.vardas << setw(20) << mok.pavarde;
+		for (int pazimys : mok.nd_pazymiai) {
+			outputFile << pazimys << "\t";
+		}
+		for (int pazymys : mok.nd_pazymiai) {
+			outputFile << setw(20) << pazymys;
+		}
+		outputFile << setw(20) << mok.egz << setw(20) << endl;
 	}
 
 	outputFile.close();
