@@ -78,6 +78,7 @@ int main() {
 		printTableVid(gudrociai);
 		cout << "Vargsiukai:" << endl;
 		printTableVid(vargsiukai);
+
 	}
 	else if (vesti_nuskaityti == 4) {
 

@@ -175,7 +175,7 @@ void generuoja_sarasa(int& n) {
 	outputFile.close();
 }
 
-pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe) {
+pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<studentas>& grupe) {
 	vector<studentas> gudrociai_bim;
 	vector<studentas> vargsiukai_bam;
 	for (const studentas& mok : grupe) {
@@ -188,4 +188,19 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vecto
 
 	}
 	return std::make_pair(gudrociai_bim, vargsiukai_bam);
+}
+
+void iraso_faila(const vector<studentas>& grupe, string file_name) {
+	ofstream outputFile(file_name);
+	outputFile << "Vardas\tPavarde\tND1\tND2\tND3\tND4\tND5\tND6\tND7\tND8\tND9\tND10\tND11\tND12\tND13\tND14\tND15\tEgz." << endl;
+
+	for (const studentas& student : grupe) {
+		outputFile << student.vardas << "\t" << student.pavarde << "\t";
+		for (int pazimys : student.nd_pazymiai) {
+			outputFile << pazimys << "\t";
+		}
+		outputFile << student.egz << endl;
+	}
+
+	outputFile.close();
 }

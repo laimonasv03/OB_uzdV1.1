@@ -55,3 +55,5 @@ void patikrink(int& value);
 void patikrink_daug(int& value);
 void generuoja_sarasa(int& n);
 pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe);
+void iraso_faila(const vector<studentas>& grupe, string file_name);
+
