@@ -65,6 +65,7 @@ int main() {
 		int moksleiviu_skaicius;
 		cout << "kiek moksleiviu generuoti: ";
 		patikrink_daug(moksleiviu_skaicius);
+		auto start_time = std::chrono::high_resolution_clock::now();
 		generuoja_sarasa(moksleiviu_skaicius);
 		read_from_file("generuoti_studentai.txt", grupe);
 		for (studentas& Laikinas : grupe) {
@@ -74,12 +75,17 @@ int main() {
 		pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
 		vector<studentas> gudrociai = dvi_grupes.first;
 		vector<studentas> vargsiukai = dvi_grupes.second;
+		sort(gudrociai.begin(), gudrociai.end(), palygintiPavarde);
+		sort(vargsiukai.begin(), vargsiukai.end(), palygintiPavarde);
 		cout << "Gudrociai:" << endl;
 		printTableVid(gudrociai);
 		cout << "Vargsiukai:" << endl;
 		printTableVid(vargsiukai);
 		iraso_faila(gudrociai,"gudrociai_bim.txt");
 		iraso_faila(vargsiukai, "vargsiukai_bam.txt");
+		auto end_time = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+		cout << duration.count() << " milliseconds (" << duration.count() / 1000.0 << " seconds)" << endl;
 	}
 	else if (vesti_nuskaityti == 4) {
 
