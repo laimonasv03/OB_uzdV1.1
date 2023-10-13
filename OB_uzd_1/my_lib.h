@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-
+#include <stdexcept>
 
 
 using std::cin;

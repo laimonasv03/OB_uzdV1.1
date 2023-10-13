@@ -3,7 +3,7 @@
 
 
 int main() {
-	std::string filename = "studentai10000.txt";
+	std::string filename = "studentai10000_senas.txt"; 
 	int vesti_nuskaityti;
 	studentas Laikinas;
 	vector<studentas> grupe;
@@ -39,7 +39,7 @@ int main() {
 				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
 			}
 		}
-	}
+	} 
 	else if (vesti_nuskaityti == 2) {
 		read_from_file(filename, grupe);
 		sort(grupe.begin(), grupe.end(), palygintiPavarde);

@@ -46,12 +46,27 @@ studentas input_data() {
 		cout << "Ivesk studento Pavarde: ";
 		cin >> studentas.pavarde;
 		cout << "Ivesk sveika skaiciu, nurodanti nd pazymiu kieki: " << " ";
-		cin >> n_paz;
+		while (true) {
+			try {
+				cin >> n_paz;
+				if (cin.fail()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+					throw std::invalid_argument("ivedei netinkama duomeni, ivesks sveika skaiciu");
+				}
+				break; // exit the loop if input is valid
+			}
+			catch (const std::invalid_argument& e) {
+				std::cerr << e.what() << endl;
+			}
+		}
 		for (int i = 0; i < n_paz; ++i) {
 			studentas.nd_pazymiai.push_back(atsitiktinis());
 		}
 		studentas.egz = atsitiktinis();
 	}
+
+
 	return studentas;
 }
 
