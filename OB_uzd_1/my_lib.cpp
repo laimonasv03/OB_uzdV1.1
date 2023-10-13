@@ -189,29 +189,55 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<stu
 	return std::make_pair(gudrociai_bim, vargsiukai_bam);
 }
 
+//void iraso_faila(const vector<studentas>& grupe, string file_name) {
+//	ofstream outputFile(file_name);
+//	//headeris
+//	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+//	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
+//		outputFile << setw(20) << "ND" + to_string(i);
+//	}
+//	outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
+//
+//	//irasymas
+//	for (const studentas& mok : grupe) {
+//		outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
+//		for (int pazimys : mok.nd_pazymiai) {
+//			outputFile << pazimys << "\t";
+//		}
+//		for (int pazymys : mok.nd_pazymiai) {
+//			outputFile << setw(20) << pazymys;
+//		}
+//		outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
+//	}
+//
+//	outputFile.close();
+//}
+
 void iraso_faila(const vector<studentas>& grupe, string file_name) {
-	ofstream outputFile(file_name);
-	//headeris
-	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-		outputFile << setw(20) << "ND" + to_string(i);
-	}
-	outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
+    ofstream outputFile(file_name);
 
-	//irasymas
-	for (const studentas& mok : grupe) {
-		outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
-		for (int pazimys : mok.nd_pazymiai) {
-			outputFile << pazimys << "\t";
-		}
-		for (int pazymys : mok.nd_pazymiai) {
-			outputFile << setw(20) << pazymys;
-		}
-		outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
-	}
+    // Check if grupe is not empty before accessing its elements
+    if (!grupe.empty()) {
+        //headeris
+        outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+        for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
+            outputFile << setw(20) << "ND" + to_string(i);
+        }
+        outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
 
-	outputFile.close();
+        //irasymas
+        for (const studentas& mok : grupe) {
+            outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
+            for (int pazimys : mok.nd_pazymiai) {
+                outputFile << setw(20) << pazimys;
+            }
+            outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
+        }
+    }
+
+    outputFile.close();
 }
+
 
 void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name) {
 	ofstream outputFile(file_name);
@@ -236,3 +262,12 @@ void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name) 
 
 	outputFile.close();
 }
+
+double  rezultatai(const vector<long>& durations) {
+		double sum = 0;
+		for (const auto& duration : durations) {
+			sum += duration;
+		}
+		return sum / durations.size();
+}
+

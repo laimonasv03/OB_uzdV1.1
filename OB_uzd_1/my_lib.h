@@ -60,4 +60,5 @@ void generuoja_sarasa(int& n, string file_name);
 pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe);
 void iraso_faila(const vector<studentas>& grupe, string file_name);
 void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name);
+double  rezultatai(const vector<long>& durations);
 
