@@ -333,10 +333,10 @@ void testFileSizes() {
 
 		// Print the average times for each operation and each file size
 		cout << "File Size: " << filename << std::endl;
-		cout << "Average Reading Time: " << avg_read / 1000.0 << " seconds\n";
-		cout << "Average Sorting Time: " << avg_sort / 1000.0 << " seconds\n";
-		cout << "Average Splitting Time: " << avg_split / 1000.0 << " seconds\n";
-		cout << "Average Writing Time: " << avg_write / 1000.0 << " seconds\n";
-		cout << "Average Processing Time: " << avg_process / 1000.0 << " seconds\n";		
+		cout << "Vidutinis skaitymo laikas: " << avg_read / 1000.0 << " seconds\n";
+		cout << "Vidutinis rusiavimo laikas: " << avg_sort / 1000.0 << " seconds\n";
+		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
+		cout << "Vidutinis irasymo laikas: " << avg_write / 1000.0 << " seconds\n";
+		cout << "Vidutinis apdorojimo laikas(suskaiciuoja vidurki): " << avg_process / 1000.0 << " seconds\n";		
 	}
 }
