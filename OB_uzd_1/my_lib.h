@@ -61,4 +61,5 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vecto
 void iraso_faila(const vector<studentas>& grupe, string file_name);
 void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name);
 double  rezultatai(const vector<long>& durations);
+void testFileSizes();
 

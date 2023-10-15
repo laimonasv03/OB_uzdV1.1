@@ -263,11 +263,80 @@ void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name) 
 	outputFile.close();
 }
 
-double  rezultatai(const vector<long>& durations) {
-		double sum = 0;
-		for (const auto& duration : durations) {
-			sum += duration;
-		}
-		return sum / durations.size();
+double rezultatai(const vector<long>& durations) {
+	return accumulate(durations.begin(), durations.end(), 0) / durations.size();
 }
 
+void testFileSizes() {
+	std::vector<std::string> filenames = {
+		   "Studentai1000.txt",
+		   "Studentai10000.txt",
+		   "Studentai100000.txt",
+		   "Studentai1000000.txt",
+		   "Studentai10000000.txt" 
+	};
+
+	for (const std::string& filename : filenames) {
+		std::vector<studentas> grupe;
+		std::vector<long> durations_read;
+		std::vector<long> durations_sort;
+		std::vector<long> durations_split;
+		std::vector<long> durations_write;
+		std::vector<long> durations_process;
+
+		for (int i = 0; i < 1; ++i) {  // 3 kart kartojam kiekvienam failui
+			auto start_time = std::chrono::high_resolution_clock::now();
+			read_from_file(filename, grupe);
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_read.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			for (studentas& Laikinas : grupe) {
+				Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
+				Laikinas.nd_pazymiai.clear();
+			}
+			end_time = std::chrono::high_resolution_clock::now();
+			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_process.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			sort(grupe.begin(), grupe.end(), palygintiPavarde);
+			end_time = std::chrono::high_resolution_clock::now();
+			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_sort.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+			vector<studentas> gudrociai = dvi_grupes.first;
+			vector<studentas> vargsiukai = dvi_grupes.second;
+			end_time = std::chrono::high_resolution_clock::now();
+			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_split.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			iraso_faila(gudrociai, "gudrociai_bim.txt");
+			iraso_faila(vargsiukai, "vargsiukai_bam.txt");
+			end_time = std::chrono::high_resolution_clock::now();
+			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_write.push_back(duration.count());
+
+			gudrociai.clear();
+			vargsiukai.clear();
+		}
+
+		double avg_read = rezultatai(durations_read) / 3.0;  // vidurkis
+		double avg_sort = rezultatai(durations_sort) / 3.0;
+		double avg_split = rezultatai(durations_split) / 3.0;
+		double avg_write = rezultatai(durations_write) / 3.0;
+		double avg_process = rezultatai(durations_process) / 3.0;
+
+		// Print the average times for each operation and each file size
+		cout << "File Size: " << filename << std::endl;
+		cout << "Average Reading Time: " << avg_read / 1000.0 << " seconds\n";
+		cout << "Average Sorting Time: " << avg_sort / 1000.0 << " seconds\n";
+		cout << "Average Splitting Time: " << avg_split / 1000.0 << " seconds\n";
+		cout << "Average Writing Time: " << avg_write / 1000.0 << " seconds\n";
+		cout << "Average Processing Time: " << avg_process / 1000.0 << " seconds\n";		
+	}
+}
