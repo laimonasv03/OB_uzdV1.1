@@ -6,7 +6,7 @@ int main() {
 
 	int vesti_nuskaityti;
 	studentas Laikinas;
-	vector<studentas> grupe;
+	list<studentas> grupe;
 	int n;
 	cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
 	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas" << endl;
@@ -73,9 +73,9 @@ int main() {
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
 			Laikinas.nd_pazymiai.clear();
 		}
-		pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
-		vector<studentas> gudrociai = dvi_grupes.first;
-		vector<studentas> vargsiukai = dvi_grupes.second;
+		pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+		list<studentas> gudrociai = dvi_grupes.first;
+		list<studentas> vargsiukai = dvi_grupes.second;
 		sort(gudrociai.begin(), gudrociai.end(), palygintiPavarde);
 		sort(vargsiukai.begin(), vargsiukai.end(), palygintiPavarde);
 		cout << "Gudrociai:" << endl;

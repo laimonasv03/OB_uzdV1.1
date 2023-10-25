@@ -1,7 +1,7 @@
 #include "my_lib.h";
 
-vector<int> input_vector() {
-	vector<int> data;
+list<int> input_vector() {
+	list<int> data;
 
 	int i = 0;
 	int pazimys = 0;
@@ -79,24 +79,27 @@ float galutinisV(studentas& stud) {
 }
 
 float galutinisM(studentas& stud) {
-	vector<int> vektorius = stud.nd_pazymiai;
-	sort(vektorius.begin(), vektorius.end()); //issirusiuojam
+	list<int> vektorius = stud.nd_pazymiai;
+	vektorius.sort(); // Sort the list
 
 	int ilgis = vektorius.size();
 	float mediana;
 	float galutinis_mediana;
 
-	if (ilgis % 2 == 0) { //jei lyginis skaiciuojam vidurki 2 salimu
-		int vid1 = vektorius[ilgis / 2 - 1];
-		int vid2 = vektorius[ilgis / 2 + 1];
-		mediana = (vid1 + vid2) / 2;
+	if (ilgis % 2 == 0) { // If even-sized list, calculate median of the two middle elements
+		auto it1 = std::next(vektorius.begin(), ilgis / 2 - 1);
+		auto it2 = std::next(vektorius.begin(), ilgis / 2);
+		mediana = (*it1 + *it2) / 2.0;
 	}
-	else {
-	mediana = vektorius[ilgis / 2];
+	else { // If odd-sized list, use the middle element as the median
+		auto it = std::next(vektorius.begin(), ilgis / 2);
+		mediana = *it;
 	}
+
 	galutinis_mediana = 0.4 * mediana + 0.6 * stud.egz;
 	return galutinis_mediana;
 }
+
 
 int atsitiktinis() {
 	random_device rd; //random generator
@@ -104,7 +107,7 @@ int atsitiktinis() {
 	return dist(rd);
 }
 
-void printTableMed(const vector<studentas>& grupe) {
+void printTableMed(const list<studentas>& grupe) {
 	// Print column headers
 	cout << "+---------------------+---------------------+-------------------+\n";
 	cout << "| " << left << setw(20) << "Pavarde" << "| " << setw(20) << "Vardas" << "| " << setw(18) << "Galutinis(med.)" << "|\n";
@@ -117,7 +120,7 @@ void printTableMed(const vector<studentas>& grupe) {
 	}
 }
 
-void printTableVid(const vector<studentas>& grupe) {
+void printTableVid(const list<studentas>& grupe) {
 	cout << "+---------------------+---------------------+-------------------+\n";
 	cout << "| " << left << setw(20) << "Pavarde" << "| " << setw(20) << "Vardas" << "| " << setw(18) << "Galutinis(v1d.)" << "|\n";
 	// Print student data
@@ -152,7 +155,7 @@ void patikrink_daug(int& value) {
 }
 
 void generuoja_sarasa(int& n, string file_name) {
-	vector<string> data;
+	list<string> data;
 	data.push_back("Vardas\t\tPavarde\t\tND1\tND2\tND3\tND4\tND5\tND6\tND7\tND8\tND9\tND10\tND11\tND12\tND13\tND14\tND15\tEgz");
 
 	for (int i = 1; i <= n; i++) {
@@ -174,9 +177,9 @@ void generuoja_sarasa(int& n, string file_name) {
 	outputFile.close();
 }
 
-pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<studentas>& grupe) {
-	vector<studentas> gudrociai_bim;
-	vector<studentas> vargsiukai_bam;
+pair<list<studentas>, list<studentas>> gudruciai_vargsiukai(const list<studentas>& grupe) {
+	list<studentas> gudrociai_bim;
+	list<studentas> vargsiukai_bam;
 	for (const studentas& mok : grupe) {
 		if (mok.galutinis_vidurkis < 5.0) {
 			vargsiukai_bam.push_back(mok);
@@ -213,62 +216,62 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<stu
 //	outputFile.close();
 //}
 
-void iraso_faila(const vector<studentas>& grupe, string file_name) {
-    ofstream outputFile(file_name);
-
-    // Check if grupe is not empty before accessing its elements
-    if (!grupe.empty()) {
-        //headeris
-        outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-        for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-            outputFile << setw(20) << "ND" + to_string(i);
-        }
-        outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
-
-        //irasymas
-        for (const studentas& mok : grupe) {
-            outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
-            for (int pazimys : mok.nd_pazymiai) {
-                outputFile << setw(20) << pazimys;
-            }
-            outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
-        }
-    }
-
-    outputFile.close();
-}
-
-
-void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name) {
+void iraso_faila(const list<studentas>& grupe, string file_name) {
 	ofstream outputFile(file_name);
-	//headeris
-	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-		outputFile << setw(20) << "ND" + to_string(i);
-	}
-	outputFile << setw(20) << "Egzaminas" << setw(20) << endl;
 
-	//irasymas
-	for (const studentas& mok : grupe) {
-		outputFile << left << setw(20) << mok.vardas << setw(20) << mok.pavarde;
-		for (int pazimys : mok.nd_pazymiai) {
-			outputFile << pazimys << "\t";
+	if (!grupe.empty()) {
+		// Header
+		outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+		for (int i = 1; i <= grupe.front().nd_pazymiai.size(); i++) {
+			outputFile << setw(20) << "ND" + to_string(i);
 		}
-		for (int pazymys : mok.nd_pazymiai) {
-			outputFile << setw(20) << pazymys;
+		outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
+
+		// Writing data
+		for (const studentas& mok : grupe) {
+			outputFile << left << setw(20) << mok.vardas << setw(20) << mok.pavarde;
+			for (int pazimys : mok.nd_pazymiai) {
+				outputFile << setw(20) << pazimys;
+			}
+			outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
 		}
-		outputFile << setw(20) << mok.egz << setw(20) << endl;
 	}
 
 	outputFile.close();
 }
 
-double rezultatai(const vector<long>& durations) {
+
+void iraso_faila_be_galutinio(const list<studentas>& grupe, string file_name) {
+	ofstream outputFile(file_name);
+
+	if (!grupe.empty()) {
+		// Header
+		outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+		for (int i = 1; i <= grupe.front().nd_pazymiai.size(); i++) {
+			outputFile << setw(20) << "ND" + to_string(i);
+		}
+		outputFile << setw(20) << "Egzaminas" << setw(20) << endl;
+
+		// Writing data
+		for (const studentas& mok : grupe) {
+			outputFile << left << setw(20) << mok.vardas << setw(20) << mok.pavarde;
+			for (int pazimys : mok.nd_pazymiai) {
+				outputFile << setw(20) << pazimys;
+			}
+			outputFile << setw(20) << mok.egz << setw(20) << endl;
+		}
+	}
+
+	outputFile.close();
+}
+
+
+double rezultatai(const list<long>& durations) {
 	return accumulate(durations.begin(), durations.end(), 0) / durations.size();
 }
 
 void testFileSizes() {
-	std::vector<std::string> filenames = {
+	std::list<std::string> filenames = {
 		   "Studentai1000.txt",
 		   "Studentai10000.txt",
 		   "Studentai100000.txt",
@@ -277,14 +280,14 @@ void testFileSizes() {
 	};
 
 	for (const std::string& filename : filenames) {
-		std::vector<studentas> grupe;
-		std::vector<long> durations_read;
-		std::vector<long> durations_sort;
-		std::vector<long> durations_split;
-		std::vector<long> durations_write;
-		std::vector<long> durations_process;
+		std::list<studentas> grupe;
+		std::list<long> durations_read;
+		std::list<long> durations_sort;
+		std::list<long> durations_split;
+		std::list<long> durations_write;
+		std::list<long> durations_process;
 
-		for (int i = 0; i < 3; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 3 kart kartojam kiekvienam failui
 			auto start_time = std::chrono::high_resolution_clock::now();
 			read_from_file(filename, grupe);
 			auto end_time = std::chrono::high_resolution_clock::now();
@@ -307,9 +310,9 @@ void testFileSizes() {
 			durations_sort.push_back(duration.count());
 
 			start_time = std::chrono::high_resolution_clock::now();
-			pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
-			vector<studentas> gudrociai = dvi_grupes.first;
-			vector<studentas> vargsiukai = dvi_grupes.second;
+			pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+			list<studentas> gudrociai = dvi_grupes.first;
+			list<studentas> vargsiukai = dvi_grupes.second;
 			end_time = std::chrono::high_resolution_clock::now();
 			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
 			durations_split.push_back(duration.count());

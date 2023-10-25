@@ -10,6 +10,7 @@
 #include <string> 
 #include <chrono>
 #include <numeric>
+#include <list>
 
 
 using std::cin;
@@ -33,10 +34,11 @@ using std::to_string;
 using std::ofstream;
 using std::pair;
 using std::accumulate;
+using std::list;
 
 struct studentas {
 	string vardas, pavarde;
-	vector <int> nd_pazymiai;
+	list<int> nd_pazymiai;
 	int egz;
 	float rez;
 	float galutinis_vidurkis;
@@ -44,22 +46,22 @@ struct studentas {
 };
 
 studentas input_data();
-void input_vector(std::vector<int>& v);
+void input_vector(std::list<int>& v);
 float galutinisV(studentas& stud);
 float galutinisM(studentas& stud);
 int atsitiktinis();
 float suapvalink(float value);
-void read_from_file(const string& filename, vector<studentas>& students);
-void printTableMed(const vector<studentas>& grupe);
-void printTableVid(const vector<studentas>& grupe);
+void read_from_file(const string& filename, list<studentas>& students);
+void printTableMed(const list<studentas>& grupe);
+void printTableVid(const list<studentas>& grupe);
 bool palygintiPavarde(studentas& a, studentas& b);
 bool palygintiVarda(studentas& a, studentas& b);
 void patikrink(int& value);
 void patikrink_daug(int& value);
 void generuoja_sarasa(int& n, string file_name);
-pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const std::vector<studentas>& grupe);
-void iraso_faila(const vector<studentas>& grupe, string file_name);
-void iraso_faila_be_galutinio(const vector<studentas>& grupe, string file_name);
-double  rezultatai(const vector<long>& durations);
+pair<list<studentas>, list<studentas>> gudruciai_vargsiukai(const std::list<studentas>& grupe);
+void iraso_faila(const list<studentas>& grupe, string file_name);
+void iraso_faila_be_galutinio(const list<studentas>& grupe, string file_name);
+double  rezultatai(const list<long>& durations);
 void testFileSizes();
 
