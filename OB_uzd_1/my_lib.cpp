@@ -410,5 +410,6 @@ void read_from_file(const string& filename, list<studentas>& students)
 		std::cerr << e.what() << endl;
 		cout << "Error opening a file: " << e.what() << endl;
 	}
+}
 
 
