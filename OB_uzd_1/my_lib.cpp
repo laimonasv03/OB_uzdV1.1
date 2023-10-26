@@ -286,7 +286,7 @@ void testFileSizes() {
 		std::list<long> durations_write;
 		std::list<long> durations_process;
 
-		for (int i = 0; i < 5; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 			auto start_time = std::chrono::high_resolution_clock::now();
 			read_from_file(filename, grupe);
 			auto end_time = std::chrono::high_resolution_clock::now();
