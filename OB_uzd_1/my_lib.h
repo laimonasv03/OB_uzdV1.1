@@ -64,4 +64,5 @@ void iraso_faila(const list<studentas>& grupe, string file_name);
 void iraso_faila_be_galutinio(const list<studentas>& grupe, string file_name);
 double  rezultatai(const list<long>& durations);
 void testFileSizes();
-
+void sort_list(std::list<studentas>& grupe);
+bool sortByLastName(const studentas& a, const studentas& b);

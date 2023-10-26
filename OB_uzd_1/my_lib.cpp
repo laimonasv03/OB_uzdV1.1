@@ -66,8 +66,8 @@ float galutinisV(studentas& stud) {
 		pazimiu_suma += pazimys;
 	}
 
-	if (stud.nd_pazymiai.size() == 0) {
-		vidurkis = 0.0f; // 0 jei tuscias vektorius
+	if (stud.nd_pazymiai.empty()) {
+		vidurkis = 0.0f; // 0 jei listas tuscias
 	}
 	else {
 		vidurkis = static_cast<float>(pazimiu_suma) / stud.nd_pazymiai.size();
@@ -79,27 +79,26 @@ float galutinisV(studentas& stud) {
 }
 
 float galutinisM(studentas& stud) {
-	list<int> vektorius = stud.nd_pazymiai;
-	vektorius.sort(); // Sort the list
+	list<int> listas = stud.nd_pazymiai;
+	listas.sort(); //issirusiuojam
 
-	int ilgis = vektorius.size();
+	int ilgis = listas.size();
 	float mediana;
 	float galutinis_mediana;
 
-	if (ilgis % 2 == 0) { // If even-sized list, calculate median of the two middle elements
-		auto it1 = std::next(vektorius.begin(), ilgis / 2 - 1);
-		auto it2 = std::next(vektorius.begin(), ilgis / 2);
+	if (ilgis % 2 == 0) { // jei lyginis mediana is 2 viduriniu
+		auto it1 = std::next(listas.begin(), ilgis / 2 - 1);
+		auto it2 = std::next(listas.begin(), ilgis / 2);
 		mediana = (*it1 + *it2) / 2.0;
 	}
-	else { // If odd-sized list, use the middle element as the median
-		auto it = std::next(vektorius.begin(), ilgis / 2);
+	else { // vidurinis, jei nelyginis
+		auto it = std::next(listas.begin(), ilgis / 2);
 		mediana = *it;
 	}
 
 	galutinis_mediana = 0.4 * mediana + 0.6 * stud.egz;
 	return galutinis_mediana;
 }
-
 
 int atsitiktinis() {
 	random_device rd; //random generator
@@ -304,7 +303,7 @@ void testFileSizes() {
 			durations_process.push_back(duration.count());
 
 			start_time = std::chrono::high_resolution_clock::now();
-			sort(grupe.begin(), grupe.end(), palygintiPavarde);
+			grupe.sort(palygintiPavarde);
 			end_time = std::chrono::high_resolution_clock::now();
 			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
 			durations_sort.push_back(duration.count());
@@ -343,3 +342,6 @@ void testFileSizes() {
 		cout << "Vidutinis apdorojimo laikas(suskaiciuoja vidurki): " << avg_process / 1000.0 << " seconds\n";		
 	}
 }
+
+
+
