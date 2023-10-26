@@ -343,5 +343,72 @@ void testFileSizes() {
 	}
 }
 
+void read_from_file(const string& filename, list<studentas>& students)
+{
+	ifstream inputFile(filename);
+
+	try {
+		if (filename.empty())
+		{
+			throw std::invalid_argument::invalid_argument("Error: File name not provided.");
+		}
+
+		if (!inputFile.is_open())
+		{
+			throw runtime_error("Error: Unable to open the file.");
+		}
+
+		string line;
+		bool firstLine = true; // Skip the first line with headers
+		int lineCount = 0;
+
+		while (getline(inputFile, line))
+		{
+			++lineCount;
+
+			if (firstLine)
+			{
+				firstLine = false;
+				continue; // Skip the header line
+			}
+
+			studentas student;
+			std::istringstream iss(line);
+			string name, surname;
+			int mark;
+
+			iss >> student.vardas >> student.pavarde;
+
+			while (iss >> mark)
+			{
+				student.nd_pazymiai.push_back(mark);
+			}
+
+			// Assign the last value in marks as the exam mark
+			if (!student.nd_pazymiai.empty())
+			{
+				student.egz = student.nd_pazymiai.back();
+				student.nd_pazymiai.pop_back(); // Remove the last element from marks
+			}
+
+			if (iss.eof())
+			{
+				iss.clear();
+				iss >> student.egz;
+			}
+
+			students.push_back(student);
+		}
+
+		inputFile.close();
+	}
+	catch (const std::invalid_argument& e) {
+		std::cerr << e.what() << endl;
+		cout << "File not provided." << endl;
+	}
+	catch (const runtime_error& e) {
+		std::cerr << e.what() << endl;
+		cout << "Error opening a file: " << e.what() << endl;
+	}
 
 
