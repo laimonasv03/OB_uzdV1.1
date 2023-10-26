@@ -350,12 +350,12 @@ void read_from_file(const string& filename, list<studentas>& students)
 	try {
 		if (filename.empty())
 		{
-			throw std::invalid_argument::invalid_argument("Error: File name not provided.");
+			throw std::invalid_argument::invalid_argument("Error: nera failo nuorodos.");
 		}
 
 		if (!inputFile.is_open())
 		{
-			throw runtime_error("Error: Unable to open the file.");
+			throw runtime_error("Error: failo negalima atidaryti.");
 		}
 
 		string line;
@@ -404,11 +404,11 @@ void read_from_file(const string& filename, list<studentas>& students)
 	}
 	catch (const std::invalid_argument& e) {
 		std::cerr << e.what() << endl;
-		cout << "File not provided." << endl;
+		cout << "nera failo nuorodos." << endl;
 	}
 	catch (const runtime_error& e) {
 		std::cerr << e.what() << endl;
-		cout << "Error opening a file: " << e.what() << endl;
+		cout << "Error'as atidarant faila: " << e.what() << endl;
 	}
 }
 
