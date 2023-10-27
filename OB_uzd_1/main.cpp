@@ -33,7 +33,7 @@ int main() {
 			}
 		}
 		else if (pasirinkimas_balo == 2) {
-			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)\n";
+			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(med.)" << setw(20) << "AtmintiesAdresas\n";
 			// studentai 
 			for (auto& student : grupe) {
 				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << "\n";
