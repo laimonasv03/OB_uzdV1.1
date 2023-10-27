@@ -317,7 +317,8 @@ void testFileSizes() {
 		cout << "Vidutinis rusiavimo laikas: " << avg_sort / 1000.0 << " seconds\n";
 		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
 		cout << "Vidutinis irasymo laikas: " << avg_write / 1000.0 << " seconds\n";
-		cout << "Vidutinis apdorojimo laikas(suskaiciuoja vidurki): " << avg_process / 1000.0 << " seconds\n";		
+		cout << "Vidutinis apdorojimo laikas(suskaiciuoja vidurki): " << avg_process / 1000.0 << " seconds\n";
+		cout << "failo vieta" << endl;
 	}
 }
 
