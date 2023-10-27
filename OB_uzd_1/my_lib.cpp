@@ -191,29 +191,7 @@ pair<list<studentas>, list<studentas>> gudruciai_vargsiukai(const list<studentas
 	return std::make_pair(gudrociai_bim, vargsiukai_bam);
 }
 
-//void iraso_faila(const vector<studentas>& grupe, string file_name) {
-//	ofstream outputFile(file_name);
-//	//headeris
-//	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-//	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-//		outputFile << setw(20) << "ND" + to_string(i);
-//	}
-//	outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
-//
-//	//irasymas
-//	for (const studentas& mok : grupe) {
-//		outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
-//		for (int pazimys : mok.nd_pazymiai) {
-//			outputFile << pazimys << "\t";
-//		}
-//		for (int pazymys : mok.nd_pazymiai) {
-//			outputFile << setw(20) << pazymys;
-//		}
-//		outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
-//	}
-//
-//	outputFile.close();
-//}
+
 
 void iraso_faila(const list<studentas>& grupe, string file_name) {
 	ofstream outputFile(file_name);
@@ -275,7 +253,7 @@ void testFileSizes() {
 		   "Studentai10000.txt",
 		   "Studentai100000.txt",
 		   "Studentai1000000.txt",
-		   "Studentai10000000.txt" 
+		   "Studentai10000000.txt"
 	};
 
 	for (const std::string& filename : filenames) {
@@ -286,7 +264,7 @@ void testFileSizes() {
 		std::list<long> durations_write;
 		std::list<long> durations_process;
 
-		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
+		for (int i = 0; i < 3; ++i) {  // 3 kart kartojam kiekvienam failui
 			auto start_time = std::chrono::high_resolution_clock::now();
 			read_from_file(filename, grupe);
 			auto end_time = std::chrono::high_resolution_clock::now();
@@ -327,11 +305,11 @@ void testFileSizes() {
 			vargsiukai.clear();
 		}
 
-		double avg_read = rezultatai(durations_read) / 3.0;  // vidurkis
-		double avg_sort = rezultatai(durations_sort) / 3.0;
-		double avg_split = rezultatai(durations_split) / 3.0;
-		double avg_write = rezultatai(durations_write) / 3.0;
-		double avg_process = rezultatai(durations_process) / 3.0;
+		double avg_read = rezultatai(durations_read); /// 3.0;  // vidurkis
+		double avg_sort = rezultatai(durations_sort); /// 3.0;
+		double avg_split = rezultatai(durations_split); /// 3.0;
+		double avg_write = rezultatai(durations_write); /// 3.0;
+		double avg_process = rezultatai(durations_process); /// 3.0;
 
 		// Print the average times for each operation and each file size
 		cout << "File Size: " << filename << std::endl;
