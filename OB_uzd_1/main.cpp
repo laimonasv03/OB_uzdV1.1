@@ -3,7 +3,7 @@
 
 
 int main() {
-
+	int lygina;
 	int vesti_nuskaityti;
 	studentas Laikinas;
 	list<studentas> grupe;
@@ -21,7 +21,17 @@ int main() {
 			grupe.push_back(Laikinas);
 			Laikinas.nd_pazymiai.clear();
 		}
-		grupe.sort(palygintiPavarde);
+		cout << "Pagal ka rusiuoti 1)varda 2)pavarde 3)rezultata"<<endl;
+		patikrink(lygina);
+		if (lygina == 1) {
+			grupe.sort(palygintiVarda);
+		}
+		else if (lygina == 2) {
+			grupe.sort(palygintiPavarde);
+		}
+		else if (lygina == 3) {
+			grupe.sort(palygintiRez);
+		}
 		int pasirinkimas_balo;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";

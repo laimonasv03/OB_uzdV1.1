@@ -137,6 +137,10 @@ bool palygintiVarda(studentas& a, studentas& b) {
 	return a.pavarde < b.pavarde;
 }
 
+bool palygintiRez(studentas& a, studentas& b) {
+	return a.rez < b.rez;
+}
+
 void patikrink(int& value) {
 	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4)) {
 		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
@@ -305,11 +309,11 @@ void testFileSizes() {
 			vargsiukai.clear();
 		}
 
-		double avg_read = rezultatai(durations_read); /// 3.0;  // vidurkis
-		double avg_sort = rezultatai(durations_sort); /// 3.0;
-		double avg_split = rezultatai(durations_split); /// 3.0;
-		double avg_write = rezultatai(durations_write); /// 3.0;
-		double avg_process = rezultatai(durations_process); /// 3.0;
+		double avg_read = rezultatai(durations_read);  // vidurkis
+		double avg_sort = rezultatai(durations_sort); 
+		double avg_split = rezultatai(durations_split); 
+		double avg_write = rezultatai(durations_write); 
+		double avg_process = rezultatai(durations_process); 
 
 		// Print the average times for each operation and each file size
 		cout << "File Size: " << filename << std::endl;
