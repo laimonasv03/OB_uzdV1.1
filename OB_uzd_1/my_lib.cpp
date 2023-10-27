@@ -284,7 +284,7 @@ void testFileSizes() {
 		std::vector<long> durations_write;
 		std::vector<long> durations_process;
 
-		for (int i = 0; i < 3; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 			auto start_time = std::chrono::high_resolution_clock::now();
 			read_from_file(filename, grupe);
 			auto end_time = std::chrono::high_resolution_clock::now();
@@ -325,11 +325,11 @@ void testFileSizes() {
 			vargsiukai.clear();
 		}
 
-		double avg_read = rezultatai(durations_read) / 3.0;  // vidurkis
-		double avg_sort = rezultatai(durations_sort) / 3.0;
-		double avg_split = rezultatai(durations_split) / 3.0;
-		double avg_write = rezultatai(durations_write) / 3.0;
-		double avg_process = rezultatai(durations_process) / 3.0;
+		double avg_read = rezultatai(durations_read);  // vidurkis
+		double avg_sort = rezultatai(durations_sort);
+		double avg_split = rezultatai(durations_split);
+		double avg_write = rezultatai(durations_write);
+		double avg_process = rezultatai(durations_process);
 
 		// Print the average times for each operation and each file size
 		cout << "File Size: " << filename << std::endl;
