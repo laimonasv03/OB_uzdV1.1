@@ -27,9 +27,9 @@ int main() {
 		cout << "1. vidurkiu\n2. mediana\n";
 		patikrink(pasirinkimas_balo);
 		if (pasirinkimas_balo == 1) {
-			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)\n";
+			cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(15) << "Galutinis(vid.)" << setw(20) << "AtmintiesAdresas\n";
 			for (auto& student : grupe) {
-				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << "\n";
+				cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_vidurkis << &student << "\n";
 			}
 		}
 		else if (pasirinkimas_balo == 2) {
