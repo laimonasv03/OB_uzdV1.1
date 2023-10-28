@@ -285,7 +285,7 @@ void testFileSizes() {
 			durations_process.push_back(duration.count());
 
 			start_time = std::chrono::high_resolution_clock::now();
-			grupe.sort(palygintiPavarde);
+			grupe.sort(palygintiVidurki);
 			end_time = std::chrono::high_resolution_clock::now();
 			duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
 			durations_sort.push_back(duration.count());
