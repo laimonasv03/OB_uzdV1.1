@@ -396,3 +396,10 @@ void read_from_file(const string& filename, list<studentas>& students)
 }
 
 
+bool palygintiVidurki(const studentas& a, const studentas& b) {
+	return a.galutinis_vidurkis < b.galutinis_vidurkis;
+}
+
+bool palygintiMediana(const studentas& a, const studentas& b) {
+	return a.galutinis_mediana < b.galutinis_mediana;
+}

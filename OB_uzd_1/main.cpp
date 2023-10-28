@@ -53,21 +53,43 @@ int main() {
 	else if (vesti_nuskaityti == 2) {
 		std::string filename = "emokymai_studentai10000.txt.txt";
 		read_from_file(filename, grupe);
-		grupe.sort(palygintiPavarde);;
-
 		for (studentas& Laikinas : grupe) {
 			Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
 			Laikinas.galutinis_mediana = galutinisM(Laikinas);
 			Laikinas.nd_pazymiai.clear();
 		}
+
 		int pasirinkimas_balo_2;
 		cout << "Pasirink su kuo skaiciuoti galutini bala\n(ivesk viena is skaiciu)" << endl;
 		cout << "1. vidurkiu\n2. mediana\n";
 		patikrink(pasirinkimas_balo_2);
+
 		if (pasirinkimas_balo_2 == 1) {
+			cout << "Pagal ka rusiuoti 1)varda 2)pavarde 3)rezultata" << endl;
+			patikrink(lygina);
+			if (lygina == 1) {
+				grupe.sort(palygintiVarda);
+			}
+			else if (lygina == 2) {
+				grupe.sort(palygintiPavarde);
+			}
+			else if (lygina == 3) {
+				grupe.sort(palygintiVidurki);
+			}
 			printTableVid(grupe);
 		}
 		else if (pasirinkimas_balo_2 == 2) {
+			cout << "Pagal ka rusiuoti 1)varda 2)pavarde 3)rezultata" << endl;
+			patikrink(lygina);
+			if (lygina == 1) {
+				grupe.sort(palygintiVarda);
+			}
+			else if (lygina == 2) {
+				grupe.sort(palygintiPavarde);
+			}
+			else if (lygina == 3) {
+				grupe.sort(palygintiMediana);
+			}
 			printTableMed(grupe);
 		}
 
