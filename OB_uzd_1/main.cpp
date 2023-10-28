@@ -108,8 +108,8 @@ int main() {
 		pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
 		list<studentas> gudrociai = dvi_grupes.first;
 		list<studentas> vargsiukai = dvi_grupes.second;
-		gudrociai.sort(palygintiPavarde);
-		vargsiukai.sort(palygintiPavarde);
+		gudrociai.sort(palygintiVidurki);
+		vargsiukai.sort(palygintiVidurki);
 		cout << "Gudrociai:" << endl;
 		printTableVid(gudrociai);
 		cout << "Vargsiukai:" << endl;
