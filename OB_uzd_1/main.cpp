@@ -96,8 +96,8 @@ int main() {
 		pair<vector<studentas>, vector<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
 		vector<studentas> gudrociai = dvi_grupes.first;
 		vector<studentas> vargsiukai = dvi_grupes.second;
-		sort(gudrociai.begin(), gudrociai.end(), palygintiPavarde);
-		sort(vargsiukai.begin(), vargsiukai.end(), palygintiPavarde);
+		sort(gudrociai.begin(), gudrociai.end(), palygintiRezultata);
+		sort(vargsiukai.begin(), vargsiukai.end(), palygintiRezultata);
 		cout << "Gudrociai:" << endl;
 		printTableVid(gudrociai);
 		cout << "Vargsiukai:" << endl;
