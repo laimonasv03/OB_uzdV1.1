@@ -135,6 +135,11 @@ bool palygintiVarda(studentas& a, studentas& b) {
 	return a.pavarde < b.pavarde;
 }
 
+bool palygintiRezultata(studentas& a, studentas& b) {
+    return a.galutinis_vidurkis < b.galutinis_vidurkis;
+}
+
+
 void patikrink(int& value) {
 	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4)) {
 		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
@@ -189,29 +194,7 @@ pair<vector<studentas>, vector<studentas>> gudruciai_vargsiukai(const vector<stu
 	return std::make_pair(gudrociai_bim, vargsiukai_bam);
 }
 
-//void iraso_faila(const vector<studentas>& grupe, string file_name) {
-//	ofstream outputFile(file_name);
-//	//headeris
-//	outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-//	for (int i = 1; i <= grupe[0].nd_pazymiai.size(); i++) {
-//		outputFile << setw(20) << "ND" + to_string(i);
-//	}
-//	outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
-//
-//	//irasymas
-//	for (const studentas& mok : grupe) {
-//		outputFile << left << setw(20) << mok.vardas<<setw(20) << mok.pavarde;
-//		for (int pazimys : mok.nd_pazymiai) {
-//			outputFile << pazimys << "\t";
-//		}
-//		for (int pazymys : mok.nd_pazymiai) {
-//			outputFile << setw(20) << pazymys;
-//		}
-//		outputFile << setw(20) << mok.egz << setw(20) << mok.galutinis_vidurkis << endl;
-//	}
-//
-//	outputFile.close();
-//}
+
 
 void iraso_faila(const vector<studentas>& grupe, string file_name) {
     ofstream outputFile(file_name);
