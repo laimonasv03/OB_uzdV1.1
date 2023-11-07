@@ -24,6 +24,9 @@
     <ClCompile Include="reading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="my_lib_v.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_lib.h">

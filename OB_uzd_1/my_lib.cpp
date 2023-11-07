@@ -417,7 +417,7 @@ void testFileSizes_list1() {
 		std::list<studentas> grupe;
 		std::list<long> durations_split;
 
-		for (int i = 0; i < 5; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 2; ++i) {  // 3 kart kartojam kiekvienam failui
 			
 			read_from_file(filename, grupe);
 
@@ -430,7 +430,7 @@ void testFileSizes_list1() {
 
 			auto start_time = std::chrono::high_resolution_clock::now();
 			start_time = std::chrono::high_resolution_clock::now();
-			pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+			pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai1(grupe);
 			list<studentas> gudrociai = dvi_grupes.first;
 			list<studentas> vargsiukai = dvi_grupes.second;
 			auto end_time = std::chrono::high_resolution_clock::now();
@@ -449,7 +449,7 @@ void testFileSizes_list1() {
 		double avg_split = rezultatai(durations_split);
 
 		// Print the average times for each operation and each file size
-		cout << "File Size: " << filename << std::endl;
+		cout << "Container - List, File Size : " << filename << std::endl;
 		
 		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
 		

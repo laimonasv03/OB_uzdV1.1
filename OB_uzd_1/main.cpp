@@ -126,6 +126,7 @@ int main() {
 	}
 	else if (vesti_nuskaityti == 5){
 		testFileSizes_list1();
+		testFileSizes_vec1();
 
 	}
 	else {

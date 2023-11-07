@@ -74,7 +74,7 @@ bool palygintiMediana(const studentas& a, const studentas& b);
 
 void testFileSizes_list1();
 
-
+//reikiamos funckijos su vektoriumi
 struct studentas_vec {
 	string vardas, pavarde;
 	vector<int> nd_pazymiai;
@@ -84,3 +84,10 @@ struct studentas_vec {
 	float galutinis_mediana;
 };
 
+void read_from_file_vec(const string& filename, vector<studentas_vec>& grupe);
+bool pagalVidurki_vec(studentas_vec& a, studentas_vec& b);
+float galutinisV_vec(studentas_vec& stud);
+void testFileSizes_vec1();
+pair<vector<studentas_vec>, vector<studentas_vec>> gudruciai_vargsiukai_vec(const vector<studentas_vec>& grupe);
+void iraso_faila_vec(const vector<studentas_vec>& grupe, string file_name);
+double rezultatai_vec(const vector<long>& durations);

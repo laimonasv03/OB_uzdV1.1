@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_lib.cpp" />
+    <ClCompile Include="my_lib_v.cpp" />
     <ClCompile Include="reading.cpp" />
   </ItemGroup>
   <ItemGroup>
