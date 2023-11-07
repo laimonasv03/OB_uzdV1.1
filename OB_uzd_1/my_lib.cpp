@@ -142,7 +142,7 @@ bool palygintiRez(studentas& a, studentas& b) {
 }
 
 void patikrink(int& value) {
-	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4)) {
+	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4 && value != 5)) {
 		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -403,3 +403,58 @@ bool palygintiVidurki(const studentas& a, const studentas& b) {
 bool palygintiMediana(const studentas& a, const studentas& b) {
 	return a.galutinis_mediana < b.galutinis_mediana;
 }
+
+void testFileSizes_list1() {
+	std::list<std::string> filenames = {
+		   "Studentai1000.txt",
+		   "Studentai10000.txt",
+		   "Studentai100000.txt",
+		   "Studentai1000000.txt",
+		   "Studentai10000000.txt"
+	};
+
+	for (const std::string& filename : filenames) {
+		std::list<studentas> grupe;
+		std::list<long> durations_split;
+
+		for (int i = 0; i < 5; ++i) {  // 3 kart kartojam kiekvienam failui
+			
+			read_from_file(filename, grupe);
+
+			for (studentas& Laikinas : grupe) {
+				Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
+				Laikinas.nd_pazymiai.clear();
+			}
+
+			grupe.sort(palygintiVidurki);
+
+			auto start_time = std::chrono::high_resolution_clock::now();
+			start_time = std::chrono::high_resolution_clock::now();
+			pair<list<studentas>, list<studentas>> dvi_grupes = gudruciai_vargsiukai(grupe);
+			list<studentas> gudrociai = dvi_grupes.first;
+			list<studentas> vargsiukai = dvi_grupes.second;
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_split.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			iraso_faila(gudrociai, "gudrociai_bim.txt");
+			iraso_faila(vargsiukai, "vargsiukai_bam.txt");
+
+
+			gudrociai.clear();
+			vargsiukai.clear();
+		}
+
+		double avg_split = rezultatai(durations_split);
+
+		// Print the average times for each operation and each file size
+		cout << "File Size: " << filename << std::endl;
+		
+		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
+		
+		
+	}
+}
+
+

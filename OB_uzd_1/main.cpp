@@ -9,7 +9,7 @@ int main() {
 	list<studentas> grupe;
 	int n;
 	cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
-	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas" << endl;
+	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas\n5 testavimas v.1" << endl;
 	patikrink(vesti_nuskaityti);
 	if (vesti_nuskaityti == 1) {
 		cout << "kiek moksleiviu ivesi: ";
@@ -123,6 +123,10 @@ int main() {
 	else if (vesti_nuskaityti == 4) {
 		
 		testFileSizes();
+	}
+	else if (vesti_nuskaityti == 5){
+		testFileSizes_list1();
+
 	}
 	else {
 		cout << "ivedei netinkama skaiciu";

@@ -35,6 +35,7 @@ using std::ofstream;
 using std::pair;
 using std::accumulate;
 using std::list;
+using std::vector;
 
 struct studentas {
 	string vardas, pavarde;
@@ -44,6 +45,7 @@ struct studentas {
 	float galutinis_vidurkis;
 	float galutinis_mediana;
 };
+
 
 studentas input_data();
 void input_vector(std::list<int>& v);
@@ -69,3 +71,16 @@ void sort_list(std::list<studentas>& grupe);
 bool sortByLastName(const studentas& a, const studentas& b);
 bool palygintiVidurki(const studentas& a, const studentas& b);
 bool palygintiMediana(const studentas& a, const studentas& b);
+
+void testFileSizes_list1();
+
+
+struct studentas_vec {
+	string vardas, pavarde;
+	vector<int> nd_pazymiai;
+	int egz;
+	float rez;
+	float galutinis_vidurkis;
+	float galutinis_mediana;
+};
+
