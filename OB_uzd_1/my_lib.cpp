@@ -474,7 +474,7 @@ list<studentas> gudruciai_vargsiukai2(std::list<studentas>& grupe) {
 		}
 	}
 
-	return grupe;
+	return vargsiukai_bam;
 }
 
 
