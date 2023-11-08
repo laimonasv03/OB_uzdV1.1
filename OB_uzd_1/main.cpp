@@ -125,9 +125,9 @@ int main() {
 		testFileSizes();
 	}
 	else if (vesti_nuskaityti == 5){
-		testFileSizes_list1();
-		testFileSizes_vec1();
-
+		//testFileSizes_list1();
+		//testFileSizes_vec1();
+		testFileSizes_list2();
 	}
 	else {
 		cout << "ivedei netinkama skaiciu";

@@ -73,6 +73,9 @@ bool palygintiVidurki(const studentas& a, const studentas& b);
 bool palygintiMediana(const studentas& a, const studentas& b);
 
 void testFileSizes_list1();
+void testFileSizes_list2();
+
+std::list<studentas> gudruciai_vargsiukai2(std::list<studentas>& grupe);
 
 //reikiamos funckijos su vektoriumi
 struct studentas_vec {

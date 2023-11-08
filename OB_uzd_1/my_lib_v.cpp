@@ -60,11 +60,11 @@ float galutinisV_vec(studentas_vec& stud) {
 
 void testFileSizes_vec1() {
     std::vector<std::string> filenames = {
-           "Studentai1000.txt",
-           "Studentai10000.txt",
-           "Studentai100000.txt",
-           "Studentai1000000.txt",
-           "Studentai10000000.txt"
+           "Studentai1000.txt"
+           //"Studentai10000.txt",
+           //"Studentai100000.txt",
+           //"Studentai1000000.txt",
+           //"Studentai10000000.txt"
     };
 
     for (const std::string& filename : filenames) {
