@@ -154,3 +154,72 @@ void iraso_faila_vec(const vector<studentas_vec>& grupe, string file_name) {
 double rezultatai_vec(const vector<long>& durations) {
     return accumulate(durations.begin(), durations.end(), 0) / durations.size();
 }
+
+void testFileSizes_vec2() {
+    std::vector<std::string> filenames = {
+           "Studentai1000.txt"
+           //"Studentai10000.txt",
+           //"Studentai100000.txt",
+           //"Studentai1000000.txt",
+           //"Studentai10000000.txt"
+    };
+
+    for (const std::string& filename : filenames) {
+        std::vector<studentas_vec> grupe;
+        std::vector<long> durations_split;
+
+        for (int i = 0; i < 2; ++i) {  // 3 kart kartojam kiekvienam failui
+
+            read_from_file_vec(filename, grupe);
+
+            for (studentas_vec& Laikinas : grupe) {
+                Laikinas.galutinis_vidurkis = galutinisV_vec(Laikinas);
+                Laikinas.nd_pazymiai.clear();
+            }
+
+            sort(grupe.begin(), grupe.end(), pagalVidurki_vec);
+
+            auto start_time = std::chrono::high_resolution_clock::now();
+            start_time = std::chrono::high_resolution_clock::now();
+            vector<studentas_vec> vargsiukai = gudruciai_vargsiukai_vec2(grupe);
+            auto end_time = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+            durations_split.push_back(duration.count());
+
+            start_time = std::chrono::high_resolution_clock::now();
+            iraso_faila_vec(grupe, "gudrociai_bim.txt");
+            iraso_faila_vec(vargsiukai, "vargsiukai_bam.txt");
+
+
+            grupe.clear();
+            vargsiukai.clear();
+        }
+
+        double avg_split = rezultatai_vec(durations_split);
+
+        cout << "Container - Vector, strategy 2" << std::endl;
+
+        cout << "Container - Vector, File Size: " << filename << std::endl;
+
+        cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
+
+
+    }
+}
+
+vector<studentas_vec> gudruciai_vargsiukai_vec2(vector<studentas_vec>& grupe) {
+    vector<studentas_vec> vargsiukai_bam;
+
+    for (auto mok = grupe.begin(); mok != grupe.end();) {
+        if (mok->galutinis_vidurkis < 5.0) {
+            vargsiukai_bam.push_back(*mok);
+            mok = grupe.erase(mok); // Remove the student from grupe
+        }
+        else {
+            ++mok;
+        }
+    }
+
+    return vargsiukai_bam;
+}
+
