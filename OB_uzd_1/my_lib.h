@@ -71,6 +71,7 @@ void sort_list(std::list<studentas>& grupe);
 bool sortByLastName(const studentas& a, const studentas& b);
 bool palygintiVidurki(const studentas& a, const studentas& b);
 bool palygintiMediana(const studentas& a, const studentas& b);
+bool yraVargsiukas(const studentas& s);
 
 void testFileSizes_list1();
 void testFileSizes_list2();
@@ -97,3 +98,4 @@ pair<vector<studentas_vec>, vector<studentas_vec>> gudruciai_vargsiukai_vec(cons
 void iraso_faila_vec(const vector<studentas_vec>& grupe, string file_name);
 double rezultatai_vec(const vector<long>& durations);
 vector<studentas_vec> gudruciai_vargsiukai_vec2(vector<studentas_vec>& grupe);
+bool yraVargsiukas_vec(const studentas_vec& s);

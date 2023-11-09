@@ -527,3 +527,59 @@ void testFileSizes_list2() {
 
 	}
 }
+
+
+void testFileSizes_list3() {
+	std::list<std::string> filenames = {
+		   "Studentai1000.txt"
+		   //"Studentai10000.txt",
+		   //"Studentai100000.txt",
+		   //"Studentai1000000.txt",
+		   //"Studentai10000000.txt"
+	};
+
+	for (const std::string& filename : filenames) {
+		std::list<studentas> grupe;
+		std::list<long> durations_split;
+
+		for (int i = 0; i < 1; ++i) {  // 3 kart kartojam kiekvienam failui
+
+			read_from_file(filename, grupe);
+
+			for (studentas& Laikinas : grupe) {
+				Laikinas.galutinis_vidurkis = galutinisV(Laikinas);
+				Laikinas.nd_pazymiai.clear();
+			}
+
+			grupe.sort(palygintiVidurki);
+
+			auto start_time = std::chrono::high_resolution_clock::now();
+			start_time = std::chrono::high_resolution_clock::now();
+			list<studentas> vargsiukai = gudruciai_vargsiukai3(grupe);
+			auto end_time = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+			durations_split.push_back(duration.count());
+
+			start_time = std::chrono::high_resolution_clock::now();
+			iraso_faila(grupe, "gudrociai_bim.txt");
+			iraso_faila(vargsiukai, "vargsiukai_bam.txt");
+
+			grupe.clear();
+			vargsiukai.clear();
+		}
+
+		double avg_split = rezultatai(durations_split);
+
+		// Print the average times for each operation and each file size
+		cout << "Container - List, strategy 2" << std::endl;
+		cout << "Container - List, File Size : " << filename << std::endl;
+		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
+
+
+	}
+}
+
+bool yraVargsiukas(const studentas& s) {
+	return s.galutinis_vidurkis < 5.0;
+}
+

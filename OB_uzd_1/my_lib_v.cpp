@@ -223,3 +223,6 @@ vector<studentas_vec> gudruciai_vargsiukai_vec2(vector<studentas_vec>& grupe) {
     return vargsiukai_bam;
 }
 
+bool yraVargsiukas_vec(const studentas_vec& s) {
+    return s.galutinis_vidurkis < 5.0;
+}
