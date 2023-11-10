@@ -75,8 +75,10 @@ bool yraVargsiukas(const studentas& s);
 
 void testFileSizes_list1();
 void testFileSizes_list2();
+void testFileSizes_list3();
 
-std::list<studentas> gudruciai_vargsiukai2(std::list<studentas>& grupe);
+list<studentas> gudruciai_vargsiukai2(std::list<studentas>& grupe);
+list<studentas>gudruciai_vargsiukai3(list<studentas>& grupe);
 
 //reikiamos funckijos su vektoriumi
 struct studentas_vec {
@@ -90,6 +92,7 @@ struct studentas_vec {
 
 void testFileSizes_vec1();
 void testFileSizes_vec2();
+void testFileSizes_vec3();
 
 void read_from_file_vec(const string& filename, vector<studentas_vec>& grupe);
 bool pagalVidurki_vec(studentas_vec& a, studentas_vec& b);
@@ -99,3 +102,4 @@ void iraso_faila_vec(const vector<studentas_vec>& grupe, string file_name);
 double rezultatai_vec(const vector<long>& durations);
 vector<studentas_vec> gudruciai_vargsiukai_vec2(vector<studentas_vec>& grupe);
 bool yraVargsiukas_vec(const studentas_vec& s);
+vector<studentas_vec>gudruciai_vargsiukai3_vec(vector<studentas_vec>& grupe);

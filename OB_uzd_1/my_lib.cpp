@@ -406,10 +406,10 @@ bool palygintiMediana(const studentas& a, const studentas& b) {
 
 void testFileSizes_list1() {
 	std::list<std::string> filenames = {
-		   "Studentai1000.txt"  
-		   //"Studentai10000.txt",
-		   //"Studentai100000.txt",
-		   //"Studentai1000000.txt",
+		   "Studentai1000.txt",  
+		   "Studentai10000.txt",
+		   "Studentai100000.txt",
+		   "Studentai1000000.txt"
 		   //"Studentai10000000.txt"
 	};
 
@@ -417,7 +417,7 @@ void testFileSizes_list1() {
 		std::list<studentas> grupe;
 		std::list<long> durations_split;
 
-		for (int i = 0; i < 2; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 			
 			read_from_file(filename, grupe);
 
@@ -480,10 +480,10 @@ list<studentas> gudruciai_vargsiukai2(std::list<studentas>& grupe) {
 
 void testFileSizes_list2() {
 	std::list<std::string> filenames = {
-		   "Studentai1000.txt"
-		   //"Studentai10000.txt",
-		   //"Studentai100000.txt",
-		   //"Studentai1000000.txt",
+		   "Studentai1000.txt",
+		   "Studentai10000.txt",
+		   "Studentai100000.txt",
+		   "Studentai1000000.txt"
 		   //"Studentai10000000.txt"
 	};
 
@@ -491,7 +491,7 @@ void testFileSizes_list2() {
 		std::list<studentas> grupe;
 		std::list<long> durations_split;
 
-		for (int i = 0; i < 1; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 
 			read_from_file(filename, grupe);
 
@@ -531,10 +531,10 @@ void testFileSizes_list2() {
 
 void testFileSizes_list3() {
 	std::list<std::string> filenames = {
-		   "Studentai1000.txt"
-		   //"Studentai10000.txt",
-		   //"Studentai100000.txt",
-		   //"Studentai1000000.txt",
+		   "Studentai1000.txt",
+		   "Studentai10000.txt",
+		   "Studentai100000.txt",
+		   "Studentai1000000.txt"
 		   //"Studentai10000000.txt"
 	};
 
@@ -542,7 +542,7 @@ void testFileSizes_list3() {
 		std::list<studentas> grupe;
 		std::list<long> durations_split;
 
-		for (int i = 0; i < 1; ++i) {  // 3 kart kartojam kiekvienam failui
+		for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 
 			read_from_file(filename, grupe);
 
@@ -571,7 +571,7 @@ void testFileSizes_list3() {
 		double avg_split = rezultatai(durations_split);
 
 		// Print the average times for each operation and each file size
-		cout << "Container - List, strategy 2" << std::endl;
+		cout << "Container - List, strategy 3" << std::endl;
 		cout << "Container - List, File Size : " << filename << std::endl;
 		cout << "Vidutinis isskirstymo i 2 grupes laikas: " << avg_split / 1000.0 << " seconds\n";
 
@@ -583,3 +583,12 @@ bool yraVargsiukas(const studentas& s) {
 	return s.galutinis_vidurkis < 5.0;
 }
 
+list<studentas>gudruciai_vargsiukai3(list<studentas>& grupe) {
+	list<studentas> vargsiukai_bam;
+
+	auto partition_point = std::partition(grupe.begin(), grupe.end(), yraVargsiukas);//suskaido pagal kondicija yraVargsiukas
+	std::move(partition_point, grupe.end(), std::back_inserter(vargsiukai_bam)); //jei kondicija T permeta i vargsiukus
+	grupe.erase(partition_point, grupe.end()); // istrina is orginalaus, jei vargsiukas
+
+	return vargsiukai_bam;
+}
