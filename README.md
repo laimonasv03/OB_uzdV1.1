@@ -20,3 +20,5 @@ RAM - 16GB
 
 ﻿
 
+instructions:
+after cloning repo, run provided commands in the RUNME txt document
