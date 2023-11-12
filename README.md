@@ -21,4 +21,4 @@ RAM - 16GB
 ﻿
 
 instructions:
-after cloning repo, run provided commands in the RUNME txt document
+after cloning repo, run provided commands from RUNME txt document to powershell
