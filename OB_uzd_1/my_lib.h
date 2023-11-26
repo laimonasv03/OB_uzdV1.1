@@ -85,14 +85,8 @@ public:
 		}
 		galutinisRez = 0.4 * median + 0.6 * egzC;
 	}
-	std::istream& read_from_file(std::istream& is);
+	std::istream& read_Student(std::istream& is);
 };
-
-
-	
-
-
-	
 
 bool compare(const Studentas&, const Studentas&);
 bool comparePagalPavarde(const Studentas&, const Studentas&);

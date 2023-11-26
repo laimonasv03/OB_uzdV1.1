@@ -1,27 +1,24 @@
 #include "my_lib.h";
 
+void read_from_file_vec_c(const string& filename, vector<Studentas>& grupe)
+{
+    std::ifstream file(filename); //naudoti failo pavadinima
+    Studentas Laik;
 
-std::istream& Studentas::read_from_file(std::istream& is) {
-    std::string vardas;
-    is >> vardas;
-    setVardas(vardas);
-
-    std::string pavarde;
-    is >> pavarde;
-    setPavarde(pavarde);
-
-    std::vector<int> pazymiai;
-    int pazymys;
-    while (is >> pazymys) {
-        pazymiai.push_back(pazymys);
+    if (!file.is_open()) {
+        cout << "Klaida atidarant faila ";
+        return;
     }
-    setNd(pazymiai);
 
-    int egzaminas = pazymiai.back();
-    pazymiai.pop_back();
-    setEgz(egzaminas);
+    std::string dummyLine;
+    getline(file, dummyLine);
+    while (file) { //ziuri kol yra mokiniu kuriuos galima nuskaityt
+        Laik.read_Student(file); //nuskaito eilute
+        Laik.suskaiciuojaRez(); // calculates final result
+        grupe.push_back(Laik);
+    }
 
-    return is;
+    file.close();
 }
 
 
