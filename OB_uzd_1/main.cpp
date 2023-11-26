@@ -3,15 +3,17 @@
 //hi
 
 int main() {
-	int lygina;
-	int vesti_nuskaityti;
-	Studentas Laikinas;
-	list<Studentas> grupe;
-	int n;
-	cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
-	cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas\n5 testavimas v.1" << endl;
-	patikrink(vesti_nuskaityti);
-	if (vesti_nuskaityti == 1) {
+	testFileSizes_vec3_C();
+}
+	//int lygina;
+	//int vesti_nuskaityti;
+	//Studentas Laikinas;
+	//list<Studentas> grupe;
+	//int n;
+	//cout << "Ar nori vesti duomenis, ar generuoti, generuoti txt faila (ivesk tinkama skaiciu)" << endl;
+	//cout << "1 Vesti\n2 Nuskaityti\n3 generuoti txt faila\n4 testavimas\n5 testavimas v.1" << endl;
+	//patikrink(vesti_nuskaityti);
+	//if (vesti_nuskaityti == 1) {
 		//cout << "kiek moksleiviu ivesi: ";
 		//patikrink_daug(n);
 		//for (int j = 0; j < n; j++) {
@@ -48,9 +50,9 @@ int main() {
 		//		cout << left << setw(20) << student.pavarde << setw(20) << student.vardas << setw(20) << student.galutinis_mediana << &student << "\n";
 		//	}
 		//}
-		cout << "relizacijos dar nera vesk 3 arba 4";
-	}
-	else if (vesti_nuskaityti == 2) {
+	//	cout << "relizacijos dar nera vesk 3 arba 4";
+	//}
+	//else if (vesti_nuskaityti == 2) {
 		//std::string filename = "emokymai_studentai10000.txt.txt";
 		//read_from_file(filename, grupe);
 		//for (studentas& Laikinas : grupe) {
@@ -92,9 +94,9 @@ int main() {
 		//	}
 		//	printTableMed(grupe);
 		//}
-		cout << "relizacijos dar nera vesk 3 arba 4";
-	}
-	else if (vesti_nuskaityti == 3) {
+	//	cout << "relizacijos dar nera vesk 3 arba 4";
+	//}
+	//else if (vesti_nuskaityti == 3) {
 		//int moksleiviu_skaicius;
 		//cout << "kiek moksleiviu generuoti: ";
 		//patikrink_daug(moksleiviu_skaicius);
@@ -119,21 +121,21 @@ int main() {
 		//auto end_time = std::chrono::high_resolution_clock::now();
 		//auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
 		//cout << duration.count() << " milliseconds (" << duration.count() / 1000.0 << " seconds)" << endl;
-		cout << "relizacijos dar nera vesk 3 arba 4";
-	}
-	else if (vesti_nuskaityti == 4) {
-		
-		testFileSizesC();
-	}
-	else if (vesti_nuskaityti == 5){
-		//testFileSizes_list1();
-		//testFileSizes_vec1();
-		//testFileSizes_list2();
-		//testFileSizes_vec2();
-		//testFileSizes_list3();
-		//testFileSizes_vec3();
-	}
-	else {
-		cout << "ivedei netinkama skaiciu";
-	}
-}
+//		cout << "relizacijos dar nera vesk 3 arba 4";
+//	}
+//	else if (vesti_nuskaityti == 4) {
+//		
+//		//testFileSizesC();
+//	}
+//	else if (vesti_nuskaityti == 5){
+//		//testFileSizes_list1();
+//		//testFileSizes_vec1();
+//		//testFileSizes_list2();
+//		//testFileSizes_vec2();
+//		//testFileSizes_list3();
+//		testFileSizes_vec3_C();
+//	}
+//	else {
+//		cout << "ivedei netinkama skaiciu";
+//	}
+//}

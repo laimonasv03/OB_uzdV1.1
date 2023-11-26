@@ -1,5 +1,5 @@
 #include "my_lib.h"
-#include "reading.cpp"
+
 
 Studentas::Studentas(std::istream& is) {
     read_Student(is);
@@ -28,30 +28,65 @@ std::istream& Studentas::read_Student(std::istream& is) {
     return is;
 }
 
-bool pagalMediana_vec_C(const Studentas& a, const Studentas& b) {
+bool Studentas :: pagalMediana_vec_C(const Studentas& a, const Studentas& b) {
     return a.getRez() < b.getRez();
 }
 
-bool comparePagalPavarde(const Studentas& a, const Studentas& b) {
+bool Studentas :: comparePagalPavarde(const Studentas& a, const Studentas& b) {
     return a.getPavarde() < b.getPavarde();
 }
 
-bool comparePagalEgza(const Studentas& a, const Studentas& b) {
+bool Studentas::comparePagalEgza(const Studentas& a, const Studentas& b) {
     return a.getEgz() < b.getEgz();
 }
 
-bool yraVargsiukas_vec_C(const Studentas& s) {
-    return s.getRez() < 5;
+bool Studentas::yraVargsiukas_vec_C() const {
+    return getRez() < 5;
 }
 
-vector<Studentas> gudruciai_vargsiukai3_C(vector<Studentas>& grupe) {
-    vector<Studentas> vargsiukai_bam;
 
-    auto partition_point = std::partition(grupe.begin(), grupe.end(), yraVargsiukas_vec_C); //suskaido pagal kondicija yraVargsiukas
-    std::move(partition_point, grupe.end(), std::back_inserter(vargsiukai_bam)); //jei kondicija T permeta i vargsiukus
-    grupe.erase(partition_point, grupe.end()); // istrina is orginalaus, jei vargsiukas
+
+std::vector<Studentas> gudruciai_vargsiukai3_vec_C(std::vector<Studentas>& grupe) {
+    std::vector<Studentas> vargsiukai_bam;
+
+    // Use std::partition to split the vector based on the condition
+    auto partition_point = std::partition(grupe.begin(), grupe.end(), [](const Studentas& s) {
+        return s.yraVargsiukas_vec_C(); // Assuming yraVargsiukas_vec_C is your condition
+        });
+
+    // Move the elements that satisfy the condition to vargsiukai_bam
+    std::move(partition_point, grupe.end(), std::back_inserter(vargsiukai_bam));
+
+    // Erase the elements that satisfy the condition from the original vector
+    grupe.erase(partition_point, grupe.end());
 
     return vargsiukai_bam;
+}
+
+
+void iraso_faila_C(const vector<Studentas>& grupe, string file_name) {
+    ofstream outputFile(file_name);
+
+    // Check if grupe is not empty before accessing its elements
+    if (!grupe.empty()) {
+        //headeris
+        outputFile << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+        for (int i = 1; i <= grupe[0].getNd().size(); i++) {
+            outputFile << setw(20) << "ND" + to_string(i);
+        }
+        outputFile << setw(20) << "Egzaminas" << setw(20) << "Rezultatas" << endl;
+
+        //irasymas
+        for (const Studentas& mok : grupe) {
+            outputFile << left << setw(20) << mok.getVardas() << setw(20) << mok.getPavarde();
+            for (int pazimys : mok.getNd()) {
+                outputFile << setw(20) << pazimys;
+            }
+            outputFile << setw(20) << mok.getEgz() << setw(20) << mok.getRez() << endl;
+        }
+    }
+
+    outputFile.close();
 }
 
 
@@ -71,7 +106,7 @@ void testFileSizes_vec3_C() {
             read_from_file_vec_c(filename, grupe);
 
 
-            sort(grupe.begin(), grupe.end(), pagalMediana_vec_C);
+            sort(grupe.begin(), grupe.end(), Studentas:: pagalMediana_vec_C);
 
             auto start_time = std::chrono::high_resolution_clock::now();
             start_time = std::chrono::high_resolution_clock::now();
@@ -81,8 +116,8 @@ void testFileSizes_vec3_C() {
             durations_split.push_back(duration.count());
 
             start_time = std::chrono::high_resolution_clock::now();
-            iraso_faila_vec(grupe, "gudrociai_bim.txt");
-            iraso_faila_vec(vargsiukai, "vargsiukai_bam.txt");
+            iraso_faila_C(grupe, "gudrociai_bim.txt");
+            iraso_faila_C(vargsiukai, "vargsiukai_bam.txt");
 
 
             grupe.clear();
@@ -101,8 +136,6 @@ void testFileSizes_vec3_C() {
     }
 }
 
-
-
-
-
-
+double rezultatai_vec(const vector<long>& durations) {
+    return accumulate(durations.begin(), durations.end(), 0) / durations.size();
+}
