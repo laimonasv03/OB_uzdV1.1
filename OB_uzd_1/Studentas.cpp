@@ -28,10 +28,22 @@ std::istream& Studentas::read_Student(std::istream& is) {
     return is;
 }
 
-bool compare(const Studentas&, const Studentas&) {
-    // realizacija 
+bool pagalMediana_vec_C(const Studentas& a, const Studentas& b) {
+    return a.getRez() < b.getRez();
 }
 
+bool comparePagalPavarde(const Studentas& a, const Studentas& b) {
+    return a.getPavarde() < b.getPavarde();
+}
+
+bool comparePagalEgza(const Studentas& a, const Studentas& b) {
+    return a.getEgz() < b.getEgz();
+}
+
+
+bool pagalEgza(const Studentas& a, const Studentas& b) {
+    return a.getEgz() < b.getEgz();
+}
 
 void testFileSizes_vec3_C() {
     std::vector<std::string> filenames = {
@@ -49,7 +61,7 @@ void testFileSizes_vec3_C() {
             read_from_file_vec_c(filename, grupe);
 
 
-            sort(grupe.begin(), grupe.end(), pagalVidurki_vec);
+            sort(grupe.begin(), grupe.end(), pagalMediana_vec_C);
 
             auto start_time = std::chrono::high_resolution_clock::now();
             start_time = std::chrono::high_resolution_clock::now();
@@ -83,57 +95,4 @@ void testFileSizes_vec3_C() {
 
 
 
-void ivedimas_is_file_c(vector<Studentas>& grupe, char vm_pasirinkimas, const string& duom_vard)
-{
-    ifstream duomenys(duom_vard);
 
-    if (!duomenys.is_open())
-    {
-        cout << "Neatsidare duomenys " << endl;
-        return;
-    }
-
-    string pirma_eilute;
-    getline(duomenys, pirma_eilute);
-
-    string eilute;
-    while (getline(duomenys, eilute))
-    { // kol nera pasiekta failo pabaiga skaitome po eilute
-        Studentas laikinas;
-
-        if (eilute.empty() || all_of(eilute.begin(), eilute.end(), ::isspace))
-        {
-            continue;
-        }
-
-        istringstream iss(eilute); // pasiverciame eilute i srauta is kurio galima skaityti lengviau
-
-        string v, p;
-        iss >> v >> p;
-        laikinas.setVardas(v);
-        laikinas.setPavarde(p);
-
-        int pazymiai;
-
-        while (iss >> pazymiai)
-        { // kol yra skaiciu tol skaitome
-            laikinas.setPazs(pazymiai);
-        }
-
-        if (!laikinas.getPaz().empty())
-        {
-            laikinas.setEgz(laikinas.getPaz().back());
-            laikinas.getPaz().pop_back();
-        }
-        else
-        {
-            cout << "Error: Vector is empty." << endl;
-        }
-        // skaiciuojamas galutinis balas
-        laikinas.calculateRez(vm_pasirinkimas);
-
-        grupe.push_back(laikinas);
-    }
-
-    duomenys.close();
-}

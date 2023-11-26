@@ -86,13 +86,22 @@ public:
 		galutinisRez = 0.4 * median + 0.6 * egzC;
 	}
 	std::istream& read_Student(std::istream& is);
+
+	static bool pagalMediana_vec_C(const Studentas& a, const Studentas& b);
+
+	bool comparePagalPavarde(const Studentas&, const Studentas&);
+	bool comparePagalEgza(const Studentas&, const Studentas&);
 };
 
-bool compare(const Studentas&, const Studentas&);
-bool comparePagalPavarde(const Studentas&, const Studentas&);
-bool comparePagalEgza(const Studentas&, const Studentas&);
 
-Studentas input_data();
+
+
+
+
+
+
+
+
 void input_vector(std::list<int>& v);
 float galutinisV(studentas& stud);
 float galutinisM(studentas& stud);
