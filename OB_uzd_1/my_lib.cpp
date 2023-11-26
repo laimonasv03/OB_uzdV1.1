@@ -21,8 +21,8 @@ float suapvalink(float value) {
 	return round(value * 100) / 100;
 }
 
-studentas input_data() {
-	studentas studentas;
+Studentas input_data() {
+	Studentas studentas;
 	int egz;
 	int pasirinkimas;
 	int n_paz;
@@ -52,7 +52,7 @@ studentas input_data() {
 		}
 		studentas.egz = atsitiktinis();
 	}
-	return studentas;
+	return Studentas;
 }
 
 

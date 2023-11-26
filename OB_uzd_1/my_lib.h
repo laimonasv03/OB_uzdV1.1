@@ -43,6 +43,7 @@ private:
 	string vardasC, pavardeC;
 	vector<int> ndC;
 	int egzC;
+	double galutinisRez;
 
 	// interfeisas
 public:
@@ -67,7 +68,29 @@ public:
 
 	inline int getEgz() const { return egzC; }
 	void setEgz(int egz) { egzC = egz; }
+
+	double getRez() const { return galutinisRez; }
+
+	void suskaiciuojaRez() {
+		// default naudojamas mediana
+		sort(ndC.begin(), ndC.end());
+		double median = 0;
+		if (ndC.size() % 2 == 0)
+		{
+			median = (ndC[ndC.size() / 2 - 1] + ndC[ndC.size() / 2]) / 2.0;
+		}
+		else
+		{
+			median = ndC[ndC.size() / 2];
+		}
+		galutinisRez = 0.4 * median + 0.6 * egzC;
+	}
+	std::istream& read_from_file(std::istream& is);
 };
+
+
+	
+
 
 	
 
@@ -75,7 +98,7 @@ bool compare(const Studentas&, const Studentas&);
 bool comparePagalPavarde(const Studentas&, const Studentas&);
 bool comparePagalEgza(const Studentas&, const Studentas&);
 
-studentas input_data();
+Studentas input_data();
 void input_vector(std::list<int>& v);
 float galutinisV(studentas& stud);
 float galutinisM(studentas& stud);
