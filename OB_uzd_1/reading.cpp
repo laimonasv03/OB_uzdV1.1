@@ -1,35 +1,25 @@
 #include "my_lib.h";
 
-void read_from_file(const string& filename, vector<studentas>& grupe)
-{
-    std::ifstream file(filename); //naudoti failo pavadinima
-    studentas Laik;
+std::istream& Studentas::read_from_file(std::istream& is) {
+    std::string vardas;
+    is >> vardas;
+    vardasC = vardas; 
 
-    if (!file.is_open()) {
-        cout <<"Klaida atidarant faila ";
-        return; 
+    std::string pavarde;
+    is >> pavarde;
+    pavardeC = pavarde; 
+    std::vector<double> pazymiai; 
+    double pazymys;
+    while (is >> pazymys) {
+        pazymiai.push_back(pazymys);
     }
+    ndC = pazymiai; 
 
-    std::string dummyLine;
-    getline(file, dummyLine);
-    while (file >> Laik.pavarde >> Laik.vardas) { 
-        std::string line;
-        getline(file, line);
-        std::istringstream iss(line);
-        int nd;
-        std::vector<int> temp;
-        while (iss >> nd) {
-            temp.push_back(nd);
-        }
-        for (int i = 0; i < temp.size() - 1; i++) {
-            Laik.nd_pazymiai.push_back(temp[i]); 
-        }
-        Laik.egz = temp.back();
-        Laik.galutinis_mediana = galutinisM(Laik); // su mediana
-        Laik.galutinis_vidurkis = galutinisV(Laik); // su vidurkiu
-        grupe.push_back(Laik); 
-        Laik.nd_pazymiai.clear();
-    }
+    double egzaminas = pazymiai.back(); 
+    pazymiai.pop_back();
+    egzC = egzaminas; 
 
-    file.close();
+    return is;
 }
+
+
