@@ -41,9 +41,9 @@ class Studentas {
 	// realizacija
 private:
 	string vardasC, pavardeC;
-	vector<double> ndC;
+	vector<int> ndC;
 	int egzC;
-	float galutinis_medianaC;
+
 	// interfeisas
 public:
 	//konstruktorius
@@ -51,16 +51,24 @@ public:
 	Studentas(std::istream& is);
 	//destruktorius
 	~Studentas() {}
-	inline string gatVardas() const {
+	inline string getVardas() const {
 		return vardasC;
 	}
+	void setVardas(const string& v) { vardasC = v; }
 
 	inline string getPavarde() const {
 		return pavardeC;
 	}
-	double galBalas(double (*) (vector<double>) = mediana);
+	void setPavarde(const string& p) {
+		pavardeC = p;
+	}
+	inline vector<int> getNd() const { return ndC; }
+	void setNd(const vector<int>& nd) { ndC = nd; }
 
-	std::istream& read_from_file(std::istream&);
+	inline int getEgz() const { return egzC; }
+	void setEgz(int egz) { egzC = egz; }
+};
+
 	
 
 bool compare(const Studentas&, const Studentas&);
