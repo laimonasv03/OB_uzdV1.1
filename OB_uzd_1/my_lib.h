@@ -91,10 +91,10 @@ public:
 
 	bool comparePagalPavarde(const Studentas&, const Studentas&);
 	bool comparePagalEgza(const Studentas&, const Studentas&);
+	bool yraVargsiukas_vec_C(const Studentas& s);
 };
 
-
-
+std::vector<Studentas> gudruciai_vargsiukai3_vec_C(std::vector<Studentas>& grupe);
 
 
 
