@@ -1,6 +1,6 @@
 #include "my_lib.h"
 
-
+//hi
 
 int main() {
 	int lygina;
