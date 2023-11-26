@@ -37,15 +37,35 @@ using std::accumulate;
 using std::list;
 using std::vector;
 
-struct studentas {
-	string vardas, pavarde;
-	list<int> nd_pazymiai;
-	int egz;
-	float rez;
-	float galutinis_vidurkis;
-	float galutinis_mediana;
-};
+class Studentas {
+	// realizacija
+private:
+	string vardasC, pavardeC;
+	vector<double> ndC;
+	int egzC;
+	float galutinis_medianaC;
+	// interfeisas
+public:
+	//konstruktorius
+	Studentas() : egzC(0) {}
+	Studentas(std::istream& is);
+	//destruktorius
+	~Studentas() {}
+	inline string gatVardas() const {
+		return vardasC;
+	}
 
+	inline string getPavarde() const {
+		return pavardeC;
+	}
+	double galBalas(double (*) (vector<double>) = mediana);
+
+	std::istream& read_from_file(std::istream&);
+	
+
+bool compare(const Studentas&, const Studentas&);
+bool comparePagalPavarde(const Studentas&, const Studentas&);
+bool comparePagalEgza(const Studentas&, const Studentas&);
 
 studentas input_data();
 void input_vector(std::list<int>& v);

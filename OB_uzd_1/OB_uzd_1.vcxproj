@@ -131,6 +131,7 @@
     <ClCompile Include="my_lib.cpp" />
     <ClCompile Include="my_lib_v.cpp" />
     <ClCompile Include="reading.cpp" />
+    <ClCompile Include="Studentas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_lib.h" />
