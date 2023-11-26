@@ -1,6 +1,6 @@
 #include "my_lib.h"
 
-
+//this is new repo
 
 int main() {
 	std::string filename = "studentai10000_senas.txt"; 
