@@ -103,7 +103,7 @@ void testFileSizes_vec3_C() {
 
         for (int i = 0; i < 5; ++i) {  // 5 kart kartojam kiekvienam failui
 
-            read_from_file_vec_c(filename, grupe);
+            read_from_file_vec_c(grupe, filename);
 
 
             sort(grupe.begin(), grupe.end(), Studentas:: pagalMediana_vec_C);

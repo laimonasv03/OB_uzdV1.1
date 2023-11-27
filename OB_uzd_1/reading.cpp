@@ -1,24 +1,38 @@
 #include "my_lib.h";
 
-void read_from_file_vec_c(const string& filename, vector<Studentas>& grupe)
+void read_from_file_vec_c(vector<Studentas>& grupe, const string& duom_vard)
 {
-    std::ifstream file(filename); //naudoti failo pavadinima
-    Studentas Laik;
+    ifstream duomenys(duom_vard);
 
-    if (!file.is_open()) {
-        cout << "Klaida atidarant faila ";
+    if (!duomenys.is_open())
+    {
+        cout << "Neatsidare duomenys " << endl;
         return;
     }
 
-    std::string dummyLine;
-    getline(file, dummyLine);
-    while (file) { //ziuri kol yra mokiniu kuriuos galima nuskaityt
-        Laik.read_Student(file); //nuskaito eilute
-        Laik.suskaiciuojaRez(); // calculates final result
-        grupe.push_back(Laik);
+    string pirma_eilute;
+    getline(duomenys, pirma_eilute);
+
+    string eilute;
+    while (getline(duomenys, eilute))
+    { // kol nera pasiekta failo pabaiga skaitome po eilute
+        Studentas laikinas;
+
+        if (eilute.empty() || all_of(eilute.begin(), eilute.end(), ::isspace))
+        {
+            continue;
+        }
+
+        std::istringstream iss(eilute); // pasiverciame eilute i srauta is kurio galima skaityti lengviau
+
+        // Use read_Student to read the data directly into the Studentas object
+        laikinas.read_Student(iss);
+
+        // skaiciuojamas galutinis balas
+        laikinas.suskaiciuojaRez(); // Assuming this method calculates the final result
+
+        grupe.push_back(laikinas);
     }
 
-    file.close();
+    duomenys.close();
 }
-
-
