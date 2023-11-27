@@ -51,7 +51,7 @@ std::vector<Studentas> gudruciai_vargsiukai3_vec_C(std::vector<Studentas>& grupe
 
     // Use std::partition to split the vector based on the condition
     auto partition_point = std::partition(grupe.begin(), grupe.end(), [](const Studentas& s) {
-        return s.yraVargsiukas_vec_C(); // Assuming yraVargsiukas_vec_C is your condition
+        return s.yraVargsiukas_vec_C(); 
         });
 
     // Move the elements that satisfy the condition to vargsiukai_bam
