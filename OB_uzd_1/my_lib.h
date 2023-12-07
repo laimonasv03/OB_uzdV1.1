@@ -65,11 +65,18 @@ public:
 	}
 	//konstruktorius nuskaitant
 	Studentas(std::istream& is);
+	
 	//destruktorius
 	~Studentas() {}
 
-	//copy constructor
-	//Stundentas(const Studentas& s) : vardasC(s.vardasC)
+	//copy constructorius 
+	Studentas(const Studentas& s) : vardasC(s.vardasC),
+		pavardeC(s.pavardeC),
+		ndC(s.ndC),
+		egzC(s.egzC),
+		galutinisRez(s.galutinisRez) {}
+
+
 
 	inline string getVardas() const { return vardasC; }
 	void setVardas(const string& v) { vardasC = v; }
