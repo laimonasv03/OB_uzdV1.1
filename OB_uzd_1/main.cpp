@@ -3,14 +3,23 @@
 //hisd
 
 int main() {
-	vector<int> ndCtestas = { 10, 10, 10, 10, 10 };
-	Studentas st("Vardenis", "Pavardenis", 10, 9.5, ndCtestas);
-	Studentas s1;
-	Studentas skopija;
-	cout << "(default)Sveikas, as " << s1.getVardas() << " " << s1.getPavarde() << endl;
-	cout << "(ivestas)Sveikas, as " << st.getVardas() << " " << st.getPavarde() << endl;
-	cout << "(kopija)Sveikas, as " << skopija.getVardas() << " " << skopija.getPavarde() << endl;
-	testFileSizes_vec3_C();
+	int vesti_nuskaityti;
+	cout << "1)Testas rule3 2) Test strategy)" << endl;
+	patikrink(vesti_nuskaityti);
+	if(vesti_nuskaityti == 1) {
+		vector<int> ndCtestas = { 10, 10, 10, 10, 10 };
+		Studentas st("Vardenis", "Pavardenis", 10, 9.5, ndCtestas);
+		Studentas s1;
+		Studentas skopija;
+		Studentas as_kopija;
+		as_kopija = s1;
+		cout << "(default)Sveikas, as " << s1.getVardas() << " " << s1.getPavarde() << endl;
+		cout << "(ivestas)Sveikas, as " << st.getVardas() << " " << st.getPavarde() << endl;
+		cout << "(kopija)Sveikas, as " << skopija.getVardas() << " " << skopija.getPavarde() << endl;
+		cout << "(copy assignment)Sveikas, as " << as_kopija.getVardas() << " " << as_kopija.getPavarde() << endl; }
+	else {
+		testFileSizes_vec3_C();
+	}
 }
 	//int lygina;
 	//int vesti_nuskaityti;

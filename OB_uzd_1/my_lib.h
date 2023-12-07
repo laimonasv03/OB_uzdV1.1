@@ -76,6 +76,19 @@ public:
 		egzC(s.egzC),
 		galutinisRez(s.galutinisRez) {}
 
+	//copy assignment
+	Studentas& operator=(const Studentas& kopija) {
+		if (&kopija == this)
+			return *this;
+		vardasC = kopija.vardasC;
+		pavardeC = kopija.pavardeC;
+		ndC = kopija.ndC;
+		egzC = kopija.egzC;
+		galutinisRez = kopija.galutinisRez;
+		return *this;
+
+	}
+
 
 
 	inline string getVardas() const { return vardasC; }
@@ -119,7 +132,8 @@ std::vector<Studentas> gudruciai_vargsiukai3_vec_C(std::vector<Studentas>& grupe
 void iraso_faila_C(const vector<Studentas>& grupe, string file_name);
 void testFileSizes_vec3_C();
 double rezultatai_vec(const vector<long>& durations);
-void read_from_file_vec_c(std::vector<Studentas>& grupe, const std::string& duom_vard);//void patikrink(int& value);
+void read_from_file_vec_c(std::vector<Studentas>& grupe, const std::string& duom_vard);
+void patikrink(int& value);
 
 #endif // MY_LIB_H
 

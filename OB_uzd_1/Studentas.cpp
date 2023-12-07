@@ -141,3 +141,11 @@ void testFileSizes_vec3_C() {
 double rezultatai_vec(const vector<long>& durations) {
     return accumulate(durations.begin(), durations.end(), 0) / durations.size();
 }
+
+void patikrink(int& value) {
+    while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4 && value != 5)) {
+        std::cout << "ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+}

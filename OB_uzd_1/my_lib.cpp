@@ -143,12 +143,12 @@
 
 //void patikrink(int& value) {
 //	while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4 && value != 5)) {
-//		std::cout << "Ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
+//		std::cout << "ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
 //		std::cin.clear();
 //		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 //	}
 //}
-//
+
 //void patikrink_daug(int& value) {
 //	while (!(std::cin >> value)) {
 //		std::cout << "Ivedei netinkama skaiciu, ivesk sveika skaiciu " << endl;
