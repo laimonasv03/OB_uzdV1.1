@@ -46,13 +46,21 @@ private:
 	vector<int> ndC;
 	int egzC;
 	double galutinisRez;
-
 public:
 	//konstruktorius
-	Studentas() {}
+	Studentas() {
+		vardasC = "Jonukas";
+		pavardeC = "Bim";
+
+	}
+	//konstruktorius nuskaitant
 	Studentas(std::istream& is);
 	//destruktorius
 	~Studentas() {}
+
+	//copy constructor
+	//Stundentas(const Studentas& s) : vardasC(s.vardasC)
+
 	inline string getVardas() const { return vardasC; }
 	void setVardas(const string& v) { vardasC = v; }
 
