@@ -26,6 +26,7 @@ int main() {
 		cout << "Irasyk studento {varda} {pavarde}" << endl;
 		cin >> over;
 		cout << over;
+		over.writeToFile("klaseIrasoFaila.txt");
 	}
 	else if (vesti_nuskaityti == 3) {
 		testFileSizes_vec3_C();

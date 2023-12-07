@@ -49,6 +49,7 @@ private:
 	int egzC;
 	double galutinisRez;
 public:
+	virtual void writeToFile(const std::string& filename) const;
 	friend istream& operator>>(std::istream& is, Studentas& s);//irasymas
 	friend ostream& operator<<(ostream& os, const Studentas& s); //isvestis
 	//konstruktorius
@@ -91,12 +92,11 @@ public:
 		galutinisRez = kopija.galutinisRez;
 		return *this;
 
+	
+
 	}
 
 	void PrintStudent() const;
-
-
-
 	inline string getVardas() const { return vardasC; }
 	void setVardas(const string& v) { vardasC = v; }
 

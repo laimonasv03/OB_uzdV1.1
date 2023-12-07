@@ -42,7 +42,9 @@ bool Studentas::comparePagalEgza(const Studentas& a, const Studentas& b) {
 
 bool Studentas::yraVargsiukas_vec_C() const {
     return getRez() < 5;
+
 }
+
 
 
 
@@ -179,3 +181,19 @@ void patikrink(int& value) {
 }
 
 
+
+void Studentas ::  writeToFile(const string& filename) const {
+    ofstream file(filename, std::ios::app);
+    if (!file) {
+        std::cerr << "Failas neatsidaro" << filename << endl;
+        return;
+    }
+
+    file << vardasC << " " << pavardeC << " " << egzC << " " << galutinisRez << " ";
+    for (int grade : ndC) {
+        file << grade << " ";
+    }
+    file << std::endl;
+
+    file.close();
+}
