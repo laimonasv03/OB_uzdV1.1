@@ -142,6 +142,34 @@ double rezultatai_vec(const vector<long>& durations) {
     return accumulate(durations.begin(), durations.end(), 0) / durations.size();
 }
 
+void Studentas::PrintStudent() const {
+    cout << "Vardas: " << vardasC << endl;
+    cout << "Pavarde: " << pavardeC << endl;
+    cout << "Egzaminas: " << egzC << endl;
+    cout << "Galutinis rezultatas: " << galutinisRez << endl;
+    cout << "Namu darbai: ";
+    for (int nd : ndC) {
+        cout << nd << " ";
+    }
+    cout << endl;
+}
+
+// perdengiam isvesties operatoriu <<
+ostream& operator<<(ostream& os, const Studentas& s) {
+    os << "Vardas: " << s.getVardas() << ", Pavarde: " << s.getPavarde();
+   
+    return os;
+}
+
+// perdengiam ivesties operatoriu >>
+istream& operator>>(istream& is, Studentas& s) {
+    string vardasC, pavardeC;
+    is >> vardasC >> pavardeC;
+    s.setVardas(vardasC);
+    s.setPavarde(pavardeC);
+    return is;
+}
+
 void patikrink(int& value) {
     while (!(std::cin >> value) || (value != 1 && value != 2 && value != 3 && value != 4 && value != 5)) {
         std::cout << "ivedei netinkama skaiciu, ivesk 1,2,3 arba 4 " << endl;
@@ -149,3 +177,5 @@ void patikrink(int& value) {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
+
+

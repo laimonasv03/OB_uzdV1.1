@@ -4,20 +4,30 @@
 
 int main() {
 	int vesti_nuskaityti;
-	cout << "1)Testas rule3 2) Test strategy)" << endl;
+	cout << "1)Testas rule3 2)Overrides  3) Test strategy)" << endl;
 	patikrink(vesti_nuskaityti);
 	if(vesti_nuskaityti == 1) {
 		vector<int> ndCtestas = { 10, 10, 10, 10, 10 };
 		Studentas st("Vardenis", "Pavardenis", 10, 9.5, ndCtestas);
+		Studentas st2("Vilmantas", "Sraigius", 10, 9.5, ndCtestas);
+		Studentas ugn("Ugne", "Ugnaite", 10, 9.5, ndCtestas);
 		Studentas s1;
 		Studentas skopija;
 		Studentas as_kopija;
-		as_kopija = s1;
+		as_kopija = st2;
 		cout << "(default)Sveikas, as " << s1.getVardas() << " " << s1.getPavarde() << endl;
 		cout << "(ivestas)Sveikas, as " << st.getVardas() << " " << st.getPavarde() << endl;
 		cout << "(kopija)Sveikas, as " << skopija.getVardas() << " " << skopija.getPavarde() << endl;
-		cout << "(copy assignment)Sveikas, as " << as_kopija.getVardas() << " " << as_kopija.getPavarde() << endl; }
-	else {
+		cout << "(copy assignment)Sveikas, as " << as_kopija.getVardas() << " " << as_kopija.getPavarde() << endl;
+		ugn.PrintStudent();
+	}
+	else if (vesti_nuskaityti == 2) {
+		Studentas over;
+		cout << "Irasyk studento {varda} {pavarde}" << endl;
+		cin >> over;
+		cout << over;
+	}
+	else if (vesti_nuskaityti == 3) {
 		testFileSizes_vec3_C();
 	}
 }

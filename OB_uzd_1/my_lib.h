@@ -39,6 +39,8 @@ using std::pair;
 using std::accumulate;
 using std::list;
 using std::vector;
+using std::ostream;
+using std::istream;
 
 class Studentas {
 private:
@@ -47,6 +49,8 @@ private:
 	int egzC;
 	double galutinisRez;
 public:
+	friend istream& operator>>(std::istream& is, Studentas& s);//irasymas
+	friend ostream& operator<<(ostream& os, const Studentas& s); //isvestis
 	//konstruktorius
 	Studentas() {
 		vardasC = "Jonukas";
@@ -88,6 +92,8 @@ public:
 		return *this;
 
 	}
+
+	void PrintStudent() const;
 
 
 
@@ -134,6 +140,8 @@ void testFileSizes_vec3_C();
 double rezultatai_vec(const vector<long>& durations);
 void read_from_file_vec_c(std::vector<Studentas>& grupe, const std::string& duom_vard);
 void patikrink(int& value);
+
+
 
 #endif // MY_LIB_H
 
