@@ -51,7 +51,9 @@ public:
 	Studentas() {
 		vardasC = "Jonukas";
 		pavardeC = "Bim";
-
+		egzC = 5;
+		galutinisRez = 5.00;
+		ndC = vector<int>(5,5);
 	}
 	//konstruktorius nuskaitant
 	Studentas(std::istream& is);

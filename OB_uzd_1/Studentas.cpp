@@ -91,6 +91,8 @@ void iraso_faila_C(const vector<Studentas>& grupe, string file_name) {
 
 
 void testFileSizes_vec3_C() {
+    cout << "Starting testing ;-)";
+
     std::vector<std::string> filenames = {
            "Studentai100000.txt",
            "Studentai1000000.txt"

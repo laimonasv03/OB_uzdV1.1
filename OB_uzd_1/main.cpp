@@ -3,6 +3,8 @@
 //hisd
 
 int main() {
+	Studentas s1;
+	cout << "Sveikas, as " << s1.getVardas() << " " << s1.getPavarde() << endl;
 	testFileSizes_vec3_C();
 }
 	//int lygina;
