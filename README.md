@@ -3,7 +3,13 @@ Implemetuota Rule of three
 Studento klase turi: 5 Konstruktorius: Default, Ivedant su parametrais, nuskaitant is failo,
 Copy konstruktorius - sukuriamas naujas obijektas (Studentas) su jau sukuro atributais 
 Copy assignment - jau esancio obijekto(Studento) reiksmes priskiriamos kitam jau sukurtam Studento obijektui
-Perdengti ivesties ir isvesties metodai >>  <<
+Perdengti metodai:
+ivesties istream& operator>> perdengimas leidizia ranka vartotojui irasyti studento varda bei pavarde formatu {vardas} {pavarde} naudojamisetVardas bei setPavarde 
+isvesties leidzia isvesti studenta << operatoriumi implementacijoje naudojami getVardas getPavarde
+Defaul konstruktorius priskiria default reiksmias
+Konstruktorius Studentas(string vardasC, string pavardeC, int egzC, double galutinisRez, vector<int> ndC) priskiria irasytas reiksmias
+Studentas(std::istream& is) nuskaito is failo
+
 Metodas writeToFile iraso studenta i faila
 **In release v1.1**
 
