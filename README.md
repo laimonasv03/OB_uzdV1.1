@@ -22,3 +22,17 @@ RAM - 16GB
 
 instructions:
 after cloning repo, run provided commands from RUNME txt document to powershell
+
+**In release v1.1** 
+CMake 
+Studentas structure was implemented as a class
+testing v3 strategy (stored in vector, students meeting condition argsiukai are erased from original and writen to a new one) with class and structure
+
+CPU - AMD Ryzen 5 5600H with Radeon Graphics, 3301 Mhz, 6 Core(s), 12 Logical Processor(s)
+GPU - NVIDIA GeForce RTX 3050 Laptop GPU
+RAM - 16GB
+
+| Container | File Size |  Structure 1 | Class | 
+|-----------|-----------|------------|------------|
+| Vector    | 100000    | 1.515      |        0.318 | 
+| Vector    | 1000000   | 16.76      | 4.618       | 
