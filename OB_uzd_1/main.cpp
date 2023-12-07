@@ -3,8 +3,11 @@
 //hisd
 
 int main() {
+	vector<int> ndCtestas = { 10, 10, 10, 10, 10 };
+	Studentas st("Vardenis", "Pavardenis", 10, 9.5, ndCtestas);
 	Studentas s1;
 	cout << "Sveikas, as " << s1.getVardas() << " " << s1.getPavarde() << endl;
+	cout << "Sveikas, as " << st.getVardas() << " " << st.getPavarde() << endl;
 	testFileSizes_vec3_C();
 }
 	//int lygina;

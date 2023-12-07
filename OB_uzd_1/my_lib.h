@@ -55,6 +55,14 @@ public:
 		galutinisRez = 5.00;
 		ndC = vector<int>(5,5);
 	}
+	//konstruktorius su input parametrais
+	Studentas(string vardasC, string pavardeC, int egzC, double galutinisRez, vector<int> ndC) {
+		this -> vardasC = vardasC;
+		this-> pavardeC = pavardeC;
+		this-> egzC = egzC;
+		this-> galutinisRez = galutinisRez;
+		this-> ndC = ndC;
+	}
 	//konstruktorius nuskaitant
 	Studentas(std::istream& is);
 	//destruktorius
