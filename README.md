@@ -1,3 +1,14 @@
+**In release  v1.2**
+Implemetuota Rule of three
+Studento klase turi: 5 Konstruktorius: Default, Ivedant su parametrais, nuskaitant is failo,
+Copy konstruktorius - sukuriamas naujas obijektas (Studentas) su jau sukuro atributais 
+Copy assignment - jau esancio obijekto(Studento) reiksmes priskiriamos kitam jau sukurtam Studento obijektui
+Perdengti ivesties ir isvesties metodai >>  <<
+Metodas writeToFile iraso studenta i faila
+**In release v1.1**
+
+
+
 **In release v1.0** 
 CMake 
 
