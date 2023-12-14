@@ -32,7 +32,7 @@ int main() {
 		testFileSizes_vec3_C();
 	}
 	else if (vesti_nuskaityti == 4) {
-		Zmogus zmogus;
+		//Zmogus zmogus;
 	}
 }
 	//int lygina;

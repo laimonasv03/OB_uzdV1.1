@@ -45,7 +45,9 @@ using std::istream;
 
 class Zmogus {
 protected:
-	//string vardasC, pavardeC;
+	Zmogus() {
+		std::cout << "negalima sukurti Zmogus objekto, nes tai yra abstrakti klase" << std::endl;
+	}
 public:
 	virtual void  PrintStudent() const = 0; // abstraktus metodas
 };
