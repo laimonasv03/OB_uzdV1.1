@@ -42,6 +42,8 @@ using std::vector;
 using std::ostream;
 using std::istream;
 
+class Zmogus {};
+
 class Studentas {
 private:
 	string vardasC, pavardeC;
