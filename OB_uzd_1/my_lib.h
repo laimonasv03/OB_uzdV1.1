@@ -45,11 +45,12 @@ using std::istream;
 
 class Zmogus {
 protected:
-	Zmogus() {
-		std::cout << "negalima sukurti Zmogus objekto, nes tai yra abstrakti klase" << std::endl;
-	}
+	Zmogus() {}
 public:
 	virtual void  PrintStudent() const = 0; // abstraktus metodas
+	static void CannotCreateObject() {
+		std::cout << "Negalima sukurti zmogaus" << std::endl;
+	}
 };
 
 class Studentas : public Zmogus {

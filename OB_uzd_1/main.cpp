@@ -4,7 +4,7 @@
 
 int main() {
 	int vesti_nuskaityti;
-	cout << "1)Testas rule3 2)Overrides  3) Test strategy)" << endl;
+	cout << "1)Testas rule3 2)Overrides  3) Test strategy 4)Sukurk zmogu)" << endl;
 	patikrink(vesti_nuskaityti);
 	if(vesti_nuskaityti == 1) {
 		vector<int> ndCtestas = { 10, 10, 10, 10, 10 };
@@ -32,7 +32,7 @@ int main() {
 		testFileSizes_vec3_C();
 	}
 	else if (vesti_nuskaityti == 4) {
-		//Zmogus zmogus;
+		Zmogus::CannotCreateObject();
 	}
 }
 	//int lygina;
