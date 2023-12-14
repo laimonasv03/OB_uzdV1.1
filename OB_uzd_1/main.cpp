@@ -31,6 +31,9 @@ int main() {
 	else if (vesti_nuskaityti == 3) {
 		testFileSizes_vec3_C();
 	}
+	else if (vesti_nuskaityti == 4) {
+		Zmogus zmogus;
+	}
 }
 	//int lygina;
 	//int vesti_nuskaityti;
