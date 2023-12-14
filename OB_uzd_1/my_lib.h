@@ -46,10 +46,10 @@ class Zmogus {
 protected:
 	string vardasC, pavardeC;
 public:
-	virtual void  PrintStudent() = 0;
+	virtual void  PrintStudent() const = 0; // abstraktus metodas
 };
 
-class Studentas {
+class Studentas : public Zmogus {
 private:
 	string vardasC, pavardeC;
 	vector<int> ndC;
