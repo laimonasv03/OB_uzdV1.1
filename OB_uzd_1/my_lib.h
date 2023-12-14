@@ -42,7 +42,12 @@ using std::vector;
 using std::ostream;
 using std::istream;
 
-class Zmogus {};
+class Zmogus {
+protected:
+	string vardasC, pavardeC;
+public:
+	virtual void  PrintStudent() = 0;
+};
 
 class Studentas {
 private:
