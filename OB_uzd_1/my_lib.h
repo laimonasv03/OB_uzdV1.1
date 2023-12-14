@@ -42,9 +42,10 @@ using std::vector;
 using std::ostream;
 using std::istream;
 
+
 class Zmogus {
 protected:
-	string vardasC, pavardeC;
+	//string vardasC, pavardeC;
 public:
 	virtual void  PrintStudent() const = 0; // abstraktus metodas
 };
