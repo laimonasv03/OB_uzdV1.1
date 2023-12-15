@@ -2,7 +2,7 @@
 Sukurta abstrakti klase zmogus, norint pademonstruoti, kad negalima sukurti obijekto Zmogus, atkomentuoti Zmogus zmogus1 dali
 ```cpp
 if (vesti_nuskaityti == 4) {
-	**//Zmogus zmogus1;**
+	//Zmogus zmogus1; //Atkomentuoti norint pademonstruoti neveikima
 	Zmogus::CannotCreateObject();
 }
 ```
