@@ -8,6 +8,9 @@ if (vesti_nuskaityti == 4) {
 ```
 Studentas klase dabar yra isvestine (derived) is Zmogaus 
 Programa veiksni v1.2 logika
+
+
+
 **In release  v1.2**
 Implemetuota Rule of three
 
