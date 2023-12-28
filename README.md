@@ -1,5 +1,5 @@
 **In release v2**
-Doxygen documentation created
+Doxygen documentation  was created
 
 **In release v1.5**
 Sukurta abstrakti klase zmogus, norint pademonstruoti, kad negalima sukurti obijekto Zmogus, atkomentuoti Zmogus zmogus1 dali
