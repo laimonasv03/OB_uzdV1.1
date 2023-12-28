@@ -1,3 +1,19 @@
+**In release v1.5**
+Sukurta abstrakti klase zmogus, norint pademonstruoti, kad negalima sukurti obijekto Zmogus, atkomentuoti Zmogus zmogus1 dali
+
+```cpp
+if (vesti_nuskaityti == 4) {
+	//Zmogus zmogus1; //Atkomentuoti norint pademonstruoti neveikima
+	Zmogus::CannotCreateObject();
+}
+```
+
+Studentas klase dabar yra isvestine (derived) is Zmogaus 
+
+Programa veiksni v1.2 logika
+
+
+
 **In release  v1.2**
 Implemetuota Rule of three
 
